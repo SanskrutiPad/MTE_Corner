@@ -17,6 +17,7 @@ struct HomePage: View {
     @State var selectionDashboard: Int? = nil
     @State var selectionFirstAid: Int? = nil
     @State var selectionTailboardMenuView: Int? = nil
+    @State var selectionAppFeedbackView: Int? = nil
     
    
     var body: some View {
@@ -46,7 +47,7 @@ struct HomePage: View {
                                 HStack {
 
     //                               WELCOME BACK BUTTON
-                                    NavigationLink(destination: TailboardView(), tag:1, selection: $selectionWelcome) {
+                                    NavigationLink(destination: ToolboxView(), tag:1, selection: $selectionWelcome) {
                                         Button {
                                             print("QuizSamp tapped")
                                             self.selectionWelcome = 1
@@ -160,8 +161,25 @@ struct HomePage: View {
                                     SettingsButton()
                                 }
                                 
-                                AppFeedbackButton()
-            //                    ShareButton()
+                        NavigationLink (destination: SendAppFeedbackView(), tag:1, selection: $selectionAppFeedbackView){
+                            Button {
+                                print("Send App Feedback button pressed")
+                                self.selectionAppFeedbackView = 1
+                            } label: {
+                                HStack {
+                                    Image(systemName: "person.wave.2")
+                                    Text("SEND APP FEEDBACK")
+                                }
+                                
+                            }
+                            .frame(width: 350, height: 35)
+                            .padding()
+                            .font(Font.headline.weight(.medium))
+                            .foregroundColor(darkText)
+                            .background(Color("YVR Light Blue"))
+                            .cornerRadius(25)
+                            .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                        }
                                 
                                
                                 
@@ -298,29 +316,4 @@ struct SettingsButton: View {
         .shadow(color: .gray, radius: 2, x: 0, y: 2)
     }
 }
-
-
-
-struct AppFeedbackButton: View {
-    var body: some View {
-        Button {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-        } label: {
-            HStack {
-                Image(systemName: "person.wave.2")
-                Text("SEND APP FEEDBACK")
-            }
-            
-        }
-        .frame(width: 350, height: 35)
-        .padding()
-        .font(Font.headline.weight(.medium))
-        .foregroundColor(darkText)
-        .background(Color("YVR Light Blue"))
-        .cornerRadius(25)
-        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-    }
-}
-
-
 

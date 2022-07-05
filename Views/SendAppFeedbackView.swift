@@ -18,48 +18,81 @@ struct SendAppFeedbackView: View {
             }
     
     
-    @State var questionOneAppFeddback = ""
+    @State var questionOneAppFeedback = ""
+    @State var questionTwoAppFeedback = ""
+    @State var questionThreeAppFeedback = ""
+    @State var questionFourAppFeedback = ""
     
     
     var body: some View {
         ZStack {
             Color("YVR Light Blue").edgesIgnoringSafeArea(.all)
-            NavigationView {
-                    
-                Form {
-                       Text("1. Has this app been helpful to you? Why, or why not?")
-                        .padding(.top)
-                        .font(.system(size: 17))
-                        TextEditor(text: $questionOneAppFeddback)
+            VStack {
+                NavigationView {
+                        
+                    Form (){
+                        Section (header: Text("NOTE: Please provide as much detail as possible").frame(alignment: .leading).foregroundColor(.white).font(Font.headline.weight(.bold)).padding(.bottom)){
+                            Text("1. Has this app been helpful to you? Why, or why not?")
+                                .padding(.top)
+                            .font(.system(size: 17))
+                        TextEditor(text: $questionOneAppFeedback)
                             .padding(.top)
                             .foregroundColor(.black)
+                        
+                        Text("2. Do you have any further suggestions to improve our framework?")
+                            .padding(.top)
+                            .font(.system(size: 17))
+                        TextEditor(text: $questionTwoAppFeedback)
+                            .padding(.top)
+                            .foregroundColor(.black)
+                        Text("3. Do you have any general suggestions to improve our app?")
+                            .padding(.top)
+                            .font(.system(size: 17))
+                        TextEditor(text: $questionThreeAppFeedback)
+                            .padding(.top)
+                            .foregroundColor(.black)
+                        
+                        Text("4. Any further comments?")
+                            .padding(.top)
+                            .font(.system(size: 17))
+                        TextEditor(text: $questionFourAppFeedback)
+                            .padding(.top)
+                            .foregroundColor(.black)
+                        }
+                        .textCase(nil)
+                        
+                                        
+                    }
                     
-                    Text("2. Do you have any further suggestions to improve our framework?")
-                        .padding(.top)
-                        .font(.system(size: 17))
-                    TextEditor(text: $questionOneAppFeddback)
-                        .padding(.top)
-                        .foregroundColor(.black)
-                    Text("3. Do you have any general suggestions to improve our app?")
-                        .padding(.top)
-                        .font(.system(size: 17))
-                    TextEditor(text: $questionOneAppFeddback)
-                        .padding(.top)
-                        .foregroundColor(.black)
                     
-                    Text("4. Any further comments?")
-                        .padding(.top)
-                        .font(.system(size: 17))
-                    TextEditor(text: $questionOneAppFeddback)
-                        .padding(.top)
-                        .foregroundColor(.black)
+                    
+                    .navigationTitle("Send App Feedback")
+                    .foregroundColor(darkText)
+                    .font(.system(size: 14))
+                    
                 }
-                
-                
-                .navigationTitle("Send App Feedback")
-                .foregroundColor(darkText)
-                .font(.system(size: 14))
-                
+                HStack {
+                    Button("Clear Form") {
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    }
+                    .frame(width: 120, height: 13)
+                    .padding()
+                    .font(Font.headline.weight(.medium))
+                    .foregroundColor(Color("YVR Dark Blue"))
+                    .background(lightGreyCol)
+                    .cornerRadius(25)
+                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                    Button("Submit") {
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    }
+                    .frame(width: 120, height: 13)
+                    .padding()
+                    .font(Font.headline.weight(.medium))
+                    .foregroundColor(Color("YVR Dark Blue"))
+                    .background(lightGreyCol)
+                    .cornerRadius(25)
+                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                }
             }
             
             

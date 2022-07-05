@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
+
 struct Maintenance_CornerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
         }
     }
 }

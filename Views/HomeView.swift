@@ -102,7 +102,7 @@ struct HomePage: View {
                                 // Line #2 of buttons
                                 HStack {
                                     
-                                    ReportJiraButton()
+                                    ReportToPlannerButton()
                                     
     //                                FIRST AID BUTTON
                                     NavigationLink(destination: FirstAidMenuView(), tag:1, selection: $selectionFirstAid) {
@@ -229,38 +229,15 @@ struct ShareButton: View {
 
 
 
-
-//struct TailboardButton: View {
-//    var body: some View {
-//        Button{
-//
-//            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-//        } label: {
-//            VStack {
-//                Text("TAILBOARD")
-//                Image(systemName: "doc.on.clipboard")
-//                    .font(.system(size: 35))
-//            }
-//        }
-//        .frame(width: 90, height: 90)
-//        .padding()
-//        .font(Font.headline.weight(.medium))
-//        .foregroundColor(darkText)
-//        .background(Color("YVR Light Blue"))
-//        .cornerRadius(25)
-//        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-//    }
-//}
-
-struct ReportJiraButton: View {
+struct ReportToPlannerButton: View {
     var body: some View {
-        Button("REPORT TO JIRA") {
+        Button("REPORT TO PLANNER") {
             /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
         }
         .frame(width: 90, height: 90)
         .padding()
         .font(Font.headline.weight(.medium))
-        .foregroundColor(Color("YVR Dark Blue"))
+        .foregroundColor(darkText)
         .background(Color("YVR Light Blue"))
         .cornerRadius(25)
         .shadow(color: .gray, radius: 2, x: 0, y: 2)

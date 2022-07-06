@@ -283,16 +283,29 @@ struct TailboardView: View {
                             .font(.system(size: 18))
                             .foregroundColor(darkText)
                         
-                        Button("Submit") {
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                        }
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                        .padding()
-                        .font(Font.headline.weight(.medium))
-                        .foregroundColor(Color("YVR Dark Blue"))
-                        .background(lightGreyCol)
-                        .cornerRadius(25)
+                        HStack {
+                            Button("Save Tailboard") {
+                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                            }
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                            .padding()
+                            .font(Font.headline.weight(.medium))
+                            .foregroundColor(Color("YVR Dark Blue"))
+                            .background(lightGreyCol)
+                            .cornerRadius(25)
+                            .shadow(color: .gray, radius: 3, x: 0, y: 2)
+                            
+                            Button("Submit") {
+                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                            }
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                            .padding()
+                            .font(Font.headline.weight(.medium))
+                            .foregroundColor(Color("YVR Dark Blue"))
+                            .background(lightGreyCol)
+                            .cornerRadius(25)
                         .shadow(color: .gray, radius: 3, x: 0, y: 2)
+                        }
                     }
                     
                 }

@@ -12,57 +12,60 @@ struct ToolboxView: View {
     @State public var selectionRetryButton: Int? = nil
     
     var body: some View {
-        ZStack {
-            Color("YVR Light Blue").edgesIgnoringSafeArea(.all)
-            ScrollView {
-                VStack {
-                    HStack(spacing: 35) {
+        NavigationView {
+            ZStack {
+                Color("YVR Light Blue").edgesIgnoringSafeArea(.all)
+                ScrollView {
+                    VStack {
+                        HStack(spacing: 35) {
+                                
+                            Text("Safety Quiz")
+                                .font(.system(size: 22))
+                                .frame(maxWidth: .infinity, alignment: .center)
+                          
                             
-                        Text("Safety Quiz")
-                            .font(.system(size: 22))
-                            .frame(maxWidth: .infinity, alignment: .center)
-                      
+                        }
+                        .padding()
+                        HStack {
+                            Text("YVR Winter Safety Hazards & Techniques")
+                                .font(.system(size: 20))
+                                .font(Font.subheadline.weight(.medium))
+                                .frame(maxWidth: .infinity, alignment: .center)
+                            
+                        }
+                        Image("quizImg")
+                            .renderingMode(.original)
+                            .padding(.bottom, 40)
                         
-                    }
-                    .padding()
-                    HStack {
-                        Text("YVR Winter Safety Hazards & Techniques")
-                            .font(.system(size: 20))
+                        Text("For each question, choose the BEST answer (unless specified).")
+                            .padding(.bottom)
+                            .padding(.leading)
+                            .padding(.trailing)
+                            .font(.system(size: 16))
                             .font(Font.subheadline.weight(.medium))
                             .frame(maxWidth: .infinity, alignment: .center)
                         
+                        Group {
+                            Question1Redo()
+                                .padding()
+                            Question2Redo()
+                                .padding()
+                            Question3Redo()
+                                .padding()
+                            Question4Redo()
+                                .padding()
+                            Question5Redo()
+                                .padding()
+                            Question6Redo()
+                                .padding()
+                            Question7Redo()
+                                .padding()
+                            Question8Redo()
+                                .padding()
+                        }
+                        
+                       
                     }
-                    Image("quizImg")
-                        .renderingMode(.original)
-                        .padding(.bottom, 40)
-                    
-                    Text("For each question, choose the BEST answer (unless specified).")
-                        .padding(.bottom)
-                        .padding(.leading)
-                        .padding(.trailing)
-                        .font(.system(size: 16))
-                        .font(Font.subheadline.weight(.medium))
-                        .frame(maxWidth: .infinity, alignment: .center)
-                    
-                    Group {
-                        Question1Redo()
-                            .padding()
-                        Question2Redo()
-                            .padding()
-                        Question3Redo()
-                            .padding()
-                        Question4Redo()
-                            .padding()
-                        Question5Redo()
-                            .padding()
-                        Question6Redo()
-                            .padding()
-                        Question7Redo()
-                            .padding()
-                        Question8Redo()
-                            .padding()
-                    }
-                    
                     HStack {
                         NavigationLink(destination: ToolboxView(), tag:1, selection: $selectionRetryButton) {
                             Button {

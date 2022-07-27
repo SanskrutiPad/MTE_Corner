@@ -102,7 +102,24 @@ struct HomePage: View {
                                 // Line #2 of buttons
                                 HStack {
                                     
-                                    ReportToPlannerButton()
+//                                    VStack {
+//                                        Link (destination: URL(string: "https://tasks.office.com/yvr.ca/en-US/Home/Planner/"), label: {
+//
+//                                        })
+//                                    }
+//                                    ReportToPlannerButton()
+                                    Button("REPORT TO PLANNER") {
+                                        if let plannerURL = URL(string: "https://tasks.office.com/yvr.ca/en-US/Home/Planner/") {
+                                            UIApplication.shared.open(plannerURL)
+                                        }
+                                    }
+                                    .frame(width: 90, height: 90)
+                                    .padding()
+                                    .font(Font.headline.weight(.medium))
+                                    .foregroundColor(darkText)
+                                    .background(Color("YVR Light Blue"))
+                                    .cornerRadius(25)
+                                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
                                     
     //                                FIRST AID BUTTON
                                     NavigationLink(destination: FirstAidMenuView(), tag:1, selection: $selectionFirstAid) {
@@ -155,9 +172,49 @@ struct HomePage: View {
                                 // Line #3 of buttons
                                 HStack {
                                     
+//                                    SHARE BUTTON writes an email to share app url
+                                    Button {
+                                        share_Sheet()
+                                    } label: {
+                                        VStack {
+                                            Text("SHARE")
+                                            Image(systemName: "arrowshape.turn.up.left.2")
+                                                .font(.system(size: 40))
+                                        }
+                                    }
+                                    .frame(width: 90, height: 90)
+                                    .font(Font.headline.weight(.medium))
+                                    .padding()
+                                    .foregroundColor(Color("YVR Dark Blue"))
+                                    .background(Color("YVR Light Blue"))
+                                    .cornerRadius(25)
+                                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
                                     
-                                    ShareButton()
-                                    YVRNewsButton()
+                                    
+                                   
+                                    
+//                                    YVR NEWS BUTTON
+                                    Button {
+                                        if let ourYVRurl = URL(string: "https://ouryvr.yvr.com/") {
+                                            UIApplication.shared.open(ourYVRurl)
+                                        }
+                                    } label: {
+                                        VStack {
+                                            Text("YVR NEWS")
+                                            Image(systemName: "newspaper")
+                                                .font(.system(size: 40))
+                                                .foregroundColor(darkText)
+                                        
+                                        }
+                                    }
+                                    .frame(width: 90, height: 90)
+                                    .padding()
+                                    .font(Font.headline.weight(.medium))
+                                    .foregroundColor(darkText)
+                                    .background(Color("YVR Light Blue"))
+                                    .cornerRadius(25)
+                                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                                    
                                     SettingsButton()
                                 }
                                 
@@ -185,7 +242,6 @@ struct HomePage: View {
                                 
                                 Spacer()
                                 Spacer()
-            //                    Spacer()
                             
                             
                     }
@@ -194,6 +250,10 @@ struct HomePage: View {
         }   // end of Home Page
     
     }
+    // function pops up a share sheet for 'Share' button
+    func share_Sheet() {
+        
+        }
 }
 
 struct HomePage_Previews: PreviewProvider {
@@ -204,70 +264,58 @@ struct HomePage_Previews: PreviewProvider {
 
 
 
-    
-
-struct ShareButton: View {
-    var body: some View {
-        Button {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-        } label: {
-            VStack {
-                Text("SHARE")
-                Image(systemName: "arrowshape.turn.up.left.2")
-                    .font(.system(size: 40))
-            }
-        }
-        .frame(width: 90, height: 90)
-        .font(Font.headline.weight(.medium))
-        .padding()
-        .foregroundColor(Color("YVR Dark Blue"))
-        .background(Color("YVR Light Blue"))
-        .cornerRadius(25)
-        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-    }
-}
 
 
 
-struct ReportToPlannerButton: View {
-    var body: some View {
-        Button("REPORT TO PLANNER") {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-        }
-        .frame(width: 90, height: 90)
-        .padding()
-        .font(Font.headline.weight(.medium))
-        .foregroundColor(darkText)
-        .background(Color("YVR Light Blue"))
-        .cornerRadius(25)
-        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-    }
-}
+//struct ShareButton: View {
+//    var body: some View {
+//        Button {
+//            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+//        } label: {
+//            VStack {
+//                Text("SHARE")
+//                Image(systemName: "arrowshape.turn.up.left.2")
+//                    .font(.system(size: 40))
+//            }
+//        }
+//        .frame(width: 90, height: 90)
+//        .font(Font.headline.weight(.medium))
+//        .padding()
+//        .foregroundColor(Color("YVR Dark Blue"))
+//        .background(Color("YVR Light Blue"))
+//        .cornerRadius(25)
+//        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+//    }
+//}
 
 
-struct YVRNewsButton: View {
-    var body: some View {
-        Button {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-        } label: {
-            VStack {
-                Text("YVR NEWS")
-                Image(systemName: "newspaper")
-                    .font(.system(size: 40))
-                    .foregroundColor(darkText)
-            
-            }
-        }
-        .frame(width: 90, height: 90)
-        .padding()
-        .font(Font.headline.weight(.medium))
-        .foregroundColor(darkText)
-        .background(Color("YVR Light Blue"))
-        .cornerRadius(25)
-        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-    }
-}
 
+
+
+
+//struct YVRNewsButton: View {
+//    var body: some View {
+//        Button {
+//            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+//        } label: {
+//            VStack {
+//                Text("YVR NEWS")
+//                Image(systemName: "newspaper")
+//                    .font(.system(size: 40))
+//                    .foregroundColor(darkText)
+//
+//            }
+//        }
+//        .frame(width: 90, height: 90)
+//        .padding()
+//        .font(Font.headline.weight(.medium))
+//        .foregroundColor(darkText)
+//        .background(Color("YVR Light Blue"))
+//        .cornerRadius(25)
+//        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+//    }
+//}
+//
 
 
 

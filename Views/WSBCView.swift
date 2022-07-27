@@ -77,7 +77,7 @@ struct WSBCView: View {
     @State private var sideOfBodyInjured = "Left"
         let sidesOfBody = ["Left", "Right", "Not Applicable"]
     @State var describeWorkIncidentLocation = ""
-    @State private var yesNo = [Task(name: "Yes", isCompleted: false),Task(name: "No", isCompleted: false)]
+    @State private var yesNo = [TaskForForms(name: "Yes", isCompleted: false),TaskForForms(name: "No", isCompleted: false)]
     
     
 //    PAGE 2
@@ -524,7 +524,7 @@ struct WSBCView: View {
 }
 
 struct yesNoCheckboxes: View {
-    @State private var yesNo = [Task(name: "Yes", isCompleted: false),Task(name: "No", isCompleted: false)]
+    @State private var yesNo = [TaskForForms(name: "Yes", isCompleted: false),TaskForForms(name: "No", isCompleted: false)]
     var body: some View {
         HStack {
             

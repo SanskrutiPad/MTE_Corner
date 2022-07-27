@@ -9,7 +9,22 @@ import SwiftUI
 
 
 struct TailboardView: View {
-    @State private var taskDiscussed = [Task(name: "Discussed", isCompleted: false),Task(name: "N/A", isCompleted: false)]
+    
+//    Textfield variables
+    @State var location = ""
+    @State var dateAndTime : Date = Date()
+    @State var supervisor = ""
+    @State var personInCharge = ""
+    @State var safetyWatch = ""
+    @State var workOrdernum = ""
+    @State var taskMember1 = ""
+    @State var taskMember2 = ""
+    @State var taskMember3 = ""
+    @State var taskMember4 = ""
+    @State var taskMember5 = ""
+    @State var taskMember6 = ""
+    
+    @State private var taskDiscussed = [TaskForForms(name: "Discussed", isCompleted: false),TaskForForms(name: "N/A", isCompleted: false)]
     @State private var moreRequirementsDiscussed = [moreReqs(name1: "Yes", isCompleted1: false), moreReqs(name1: "No", isCompleted1: false), moreReqs(name1: "Attached", isCompleted1: false)]
     
     //    Initializes Background Colour
@@ -20,307 +35,352 @@ struct TailboardView: View {
     
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Form {
-                    Section (header: Text("Ensure that you discuss:").frame(alignment: .leading).foregroundColor(.white).cornerRadius(20).font(Font.headline.weight(.bold))){
+            NavigationView {
+                VStack {
+                    
+                    
+                    Form {
+                        
+                        Section(header: Text("Please fill out the following:").frame(alignment: .leading).foregroundColor(.white).cornerRadius(20).font(Font.headline.weight(.bold))) {
+                            Group {
+                                
+                                TextField("Location", text: $location)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                DatePicker("Date & Time", selection: $dateAndTime,
+                                           displayedComponents: [.date])
+                                            .accentColor(darkText)
+                                TextField("Location", text: $location)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                TextField("Location", text: $location)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                TextField("Location", text: $location)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                TextField("Location", text: $location)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                TextField("Location", text: $location)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                TextField("Location", text: $location)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                TextField("Location", text: $location)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                TextField("Location", text: $location)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                            }
+                            
+                            Group {
+                                
+                            }
+                            
+                        }
+                        
+                        Section (header: Text("Ensure that you discuss:").frame(alignment: .leading).foregroundColor(.white).cornerRadius(20).font(Font.headline.weight(.bold))){
+                                        }
+                        
+    //                    OCCUPATIONAL HEALTH & SAFETY
+                        Section {
+                            Group {
+                                    Text("Occupational Health & Safety")
+                                        .bold()
+                                        .foregroundColor(darkText)
+                                        .padding(.top)
+                                        .font(.system(size: 20))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                VStack {
+                                    Text("Canada Labor Code OSH Regulations")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    HStack {
+                                        discussedOrNotApplicable()
                                     }
-                    
-//                    OCCUPATIONAL HEALTH & SAFETY
-                    Section {
-                        Group {
-                                Text("Occupational Health & Safety")
-                                    .bold()
-                                    .foregroundColor(darkText)
-                                    .padding(.top)
-                                    .font(.system(size: 20))
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                                    
+                                }
+                                VStack {
+                                    Text("MTE Work Practice Code Chapters")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    HStack {
+                                        discussedOrNotApplicable()
+                                            .padding(.leading)
+                                    }
+                                    
+                                }
+                                VStack {
+                                    Text("Lock Out Procedures")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                        .frame(alignment: .leading)
+                                    HStack {
+                                        discussedOrNotApplicable()
+                                            .padding(.leading, 40)
+                                    }
+                                    
+                                }
+                                VStack {
+                                    Text("Confined Space Entry Procedures*")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                    
+                                }
+                                VStack {
+                                    Text("Fall Protection*")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                    
+                                }
+                                VStack {
+                                    Text("Safe cutting/Welding Practices*")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                    
+                                }
+                                VStack {
+                                    Text("Pertinent Sections of MSDS")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                    
+                                }
+                                VStack {
+                                    Text("Controlled Access to Work Area")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                    
+                                }
+                                VStack {
+                                    Text("Personal Protective Equipment")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                    
+                                }
+                            }
                             
-                            VStack {
-                                Text("Canada Labor Code OSH Regulations")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                HStack {
+                            Group {
+                                VStack {
+                                    Text("Condition of tools, equipement, and vehicles")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                    Text("Electrical Safety")
+                                        .bold()
+                                        .foregroundColor(darkText)
+                                        .padding(.top)
+                                        .font(.system(size: 20))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                VStack {
+                                    Text("PPE (e.g. inspection of AR SR PPE)")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("Electrical Testing Equipment & Tools")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("Other Equipment (e.g. non conductive ladders)")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
                                     discussedOrNotApplicable()
                                 }
                                 
-                            }
-                            VStack {
-                                Text("MTE Work Practice Code Chapters")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                HStack {
-                                    discussedOrNotApplicable()
-                                        .padding(.leading)
-                                }
                                 
-                            }
-                            VStack {
-                                Text("Lock Out Procedures")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                    .frame(alignment: .leading)
-                                HStack {
-                                    discussedOrNotApplicable()
-                                        .padding(.leading, 40)
-                                }
-                                
-                            }
-                            VStack {
-                                Text("Confined Space Entry Procedures*")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                                
-                            }
-                            VStack {
-                                Text("Fall Protection*")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                                
-                            }
-                            VStack {
-                                Text("Safe cutting/Welding Practices*")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                                
-                            }
-                            VStack {
-                                Text("Pertinent Sections of MSDS")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                                
-                            }
-                            VStack {
-                                Text("Controlled Access to Work Area")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                                
-                            }
-                            VStack {
-                                Text("Personal Protective Equipment")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                                
-                            }
-                        }
-                        
-                        Group {
-                            VStack {
-                                Text("Condition of tools, equipement, and vehicles")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                                Text("Electrical Safety")
-                                    .bold()
-                                    .foregroundColor(darkText)
-                                    .padding(.top)
-                                    .font(.system(size: 20))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            VStack {
-                                Text("PPE (e.g. inspection of AR SR PPE)")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                            VStack {
-                                Text("Electrical Testing Equipment & Tools")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                            VStack {
-                                Text("Other Equipment (e.g. non conductive ladders)")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
                             }
                             
-                            
-                        }
-                        
 
-                    }
-                    
-//                    ENVIRONMENT
-                    Section {
-                        Text("Environment")
-                            .bold()
-                            .foregroundColor(darkText)
-                            .padding(.top)
-                            .font(.system(size: 20))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        VStack {
-                            Text("Environmental Standards & Regulations")
-                                .font(.system(size: 16))
-                                .foregroundColor(darkText)
-                            discussedOrNotApplicable()
                         }
-                        VStack {
-                            Text("Spill Response Plan")
-                                .font(.system(size: 16))
-                                .foregroundColor(darkText)
-                            discussedOrNotApplicable()
-                        }
-                    }
-//                    OPERATIONS
-                    Section {
-                        Group {
-                            Text("Operations")
+                        
+    //                    ENVIRONMENT
+                        Section {
+                            Text("Environment")
                                 .bold()
                                 .foregroundColor(darkText)
                                 .padding(.top)
                                 .font(.system(size: 20))
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             VStack {
-                                Text("Traffic Control")
+                                Text("Environmental Standards & Regulations")
                                     .font(.system(size: 16))
                                     .foregroundColor(darkText)
                                 discussedOrNotApplicable()
                             }
                             VStack {
-                                Text("Airfield Lighting Control Regulations")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                            VStack {
-                                Text("AVOP Regulations")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                            VStack {
-                                Text("Airside Security Regulations")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                            VStack {
-                                Text("Airport Noise Regulations")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                            VStack {
-                                Text("Operations/Tower Notification")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                            VStack {
-                                Text("Weather conditions")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                            VStack {
-                                Text("Housekeeping")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
-                            VStack {
-                                Text("Impact on emergency eqpt. & systems")
+                                Text("Spill Response Plan")
                                     .font(.system(size: 16))
                                     .foregroundColor(darkText)
                                 discussedOrNotApplicable()
                             }
                         }
-                        VStack {
-                            Text("Public Safety")
-                                .font(.system(size: 16))
-                                .foregroundColor(darkText)
-                            discussedOrNotApplicable()
+    //                    OPERATIONS
+                        Section {
+                            Group {
+                                Text("Operations")
+                                    .bold()
+                                    .foregroundColor(darkText)
+                                    .padding(.top)
+                                    .font(.system(size: 20))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                VStack {
+                                    Text("Traffic Control")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("Airfield Lighting Control Regulations")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("AVOP Regulations")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("Airside Security Regulations")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("Airport Noise Regulations")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("Operations/Tower Notification")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("Weather conditions")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("Housekeeping")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                                VStack {
+                                    Text("Impact on emergency eqpt. & systems")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(darkText)
+                                    discussedOrNotApplicable()
+                                }
+                            }
+                            VStack {
+                                Text("Public Safety")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(darkText)
+                                discussedOrNotApplicable()
+                            }
                         }
-                    }
-                    Section {
-                        Text("More Requirements")
-                            .bold()
-                            .foregroundColor(darkText)
-                            .padding(.top)
-                            .font(.system(size: 20))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        VStack {
-                            Text("(*) Is a Fall Hazard Assessment Form Required?")
-                                .font(.system(size: 16))
+                        Section {
+                            Text("More Requirements")
+                                .bold()
                                 .foregroundColor(darkText)
-                            yesNoAttached()
-                        }
-                        VStack {
-                            Text("(*) Have Provisions for Rescue been addressed?")
-                                .font(.system(size: 16))
-                                .foregroundColor(darkText)
-                            yesNoAttached()
-                        }
-                        VStack {
-                            Text("(*) Is a Confined Space Permit Required?")
-                                .font(.system(size: 16))
-                                .foregroundColor(darkText)
-                            yesNoAttached()
-                        }
-                        VStack {
-                            Text("(*) Is a Hot Work Permit Required?")
-                                .font(.system(size: 16))
-                                .foregroundColor(darkText)
-                            yesNoAttached()
+                                .padding(.top)
+                                .font(.system(size: 20))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            VStack {
+                                Text("(*) Is a Fall Hazard Assessment Form Required?")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(darkText)
+                                yesNoAttached()
+                            }
+                            VStack {
+                                Text("(*) Have Provisions for Rescue been addressed?")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(darkText)
+                                yesNoAttached()
+                            }
+                            VStack {
+                                Text("(*) Is a Confined Space Permit Required?")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(darkText)
+                                yesNoAttached()
+                            }
+                            VStack {
+                                Text("(*) Is a Hot Work Permit Required?")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(darkText)
+                                yesNoAttached()
+                            }
+                            
+                                                    
                         }
                         
-                                                
+                        Section {
+                            Text("Review your assessment and revise if necessary:")
+                                .font(.system(size: 18))
+                                .foregroundColor(darkText)
+                            Text("Signature P.I.C.")
+                                .font(.system(size: 18))
+                                .foregroundColor(darkText)
+                            
+                            HStack {
+                                Button("Save Tailboard") {
+                                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                                }
+                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                                .padding()
+                                .font(Font.headline.weight(.medium))
+                                .foregroundColor(Color("YVR Dark Blue"))
+                                .background(lightGreyCol)
+                                .cornerRadius(25)
+                                .shadow(color: .gray, radius: 3, x: 0, y: 2)
+                                
+                                Button("Submit") {
+                                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                                }
+                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                                .padding()
+                                .font(Font.headline.weight(.medium))
+                                .foregroundColor(Color("YVR Dark Blue"))
+                                .background(lightGreyCol)
+                                .cornerRadius(25)
+                            .shadow(color: .gray, radius: 3, x: 0, y: 2)
+                            }
+                        }
+                        
                     }
                     
-                    Section {
-                        Text("Review your assessment and revise if necessary:")
-                            .font(.system(size: 18))
-                            .foregroundColor(darkText)
-                        Text("Signature P.I.C.")
-                            .font(.system(size: 18))
-                            .foregroundColor(darkText)
-                        
-                        HStack {
-                            Button("Save Tailboard") {
-                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                            }
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                            .padding()
-                            .font(Font.headline.weight(.medium))
-                            .foregroundColor(Color("YVR Dark Blue"))
-                            .background(lightGreyCol)
-                            .cornerRadius(25)
-                            .shadow(color: .gray, radius: 3, x: 0, y: 2)
-                            
-                            Button("Submit") {
-                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                            }
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                            .padding()
-                            .font(Font.headline.weight(.medium))
-                            .foregroundColor(Color("YVR Dark Blue"))
-                            .background(lightGreyCol)
-                            .cornerRadius(25)
-                        .shadow(color: .gray, radius: 3, x: 0, y: 2)
-                        }
-                    }
                     
                 }
-                
-                
+                .navigationTitle("Tailboard Assessment")
             }
-            .navigationTitle("Tailboard Assessment")
         }
-    }
+    
 }
 
 
 
 struct discussedOrNotApplicable: View {
-    @State private var taskDiscussed = [Task(name: "Discussed", isCompleted: false),Task(name: "N/A", isCompleted: false)]
+    @State private var taskDiscussed = [TaskForForms(name: "Discussed", isCompleted: false),TaskForForms(name: "N/A", isCompleted: false)]
     var body: some View {
         HStack {
             

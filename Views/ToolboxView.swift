@@ -26,13 +26,11 @@ struct ToolboxView: View {
                             
                         }
                         .padding()
-                        HStack {
-                            Text("YVR Winter Safety Hazards & Techniques")
-                                .font(.system(size: 20))
-                                .font(Font.subheadline.weight(.medium))
-                                .frame(maxWidth: .infinity, alignment: .center)
-                            
-                        }
+                        Text("YVR Winter Safety Hazards & Techniques")
+                            .font(.system(size: 20))
+                            .font(Font.subheadline.weight(.medium))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                        
                         Image("quizImg")
                             .renderingMode(.original)
                             .padding(.bottom, 40)
@@ -66,27 +64,7 @@ struct ToolboxView: View {
                         
                        
                     }
-                    HStack {
-                        NavigationLink(destination: ToolboxView(), tag:1, selection: $selectionRetryButton) {
-                            Button {
-                                print("Retry button pressed")
-                                self.selectionRetryButton = 1
-                            } label: {
-                                VStack {
-                                    Text("Retry")
-                                        .padding(.horizontal)
-                                    
-                                }
-                            }
-                            .padding(20)
-                            .background(Color.white)
-                            .foregroundColor(Color("YVR Dark Blue"))
-                            .cornerRadius(20)
-                            .shadow(color: .gray, radius: 2, x: 0, y: 2)
-                        }
-                        
-                        
-                        NavigationLink(destination: HomePage(), tag:1, selection: $selectionSubmitButton) {
+                        NavigationLink(destination: ToolboxResultsView(), tag:1, selection: $selectionSubmitButton) {
                             Button {
                                 print("Submit button pressed")
                                 self.selectionSubmitButton = 1
@@ -103,7 +81,7 @@ struct ToolboxView: View {
                             .cornerRadius(20)
                             .shadow(color: .gray, radius: 2, x: 0, y: 2)
                         }
-                    }
+                    
                 }
             }
         }

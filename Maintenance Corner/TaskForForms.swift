@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Task: Identifiable {
+struct TaskForForms: Identifiable {
     let id = UUID()
     let name: String
     var isCompleted: Bool

@@ -24,7 +24,10 @@
 		0C263940282AE00400E43318 /* sideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C26393F282AE00400E43318 /* sideMenuViewModel.swift */; };
 		0C263942282C140300E43318 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C263941282C140300E43318 /* Logout.swift */; };
 		0C40A9882857D7170008026C /* moreRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40A9872857D7170008026C /* moreRequirements.swift */; };
-		0C40A98A2857E4550008026C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40A9892857E4550008026C /* Task.swift */; };
+		0C40A98A2857E4550008026C /* TaskForForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40A9892857E4550008026C /* TaskForForms.swift */; };
+		0C40DC1F28874B3700CED998 /* backgroundThreads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40DC1E28874B3700CED998 /* backgroundThreads.swift */; };
+		0C40DC212887A14B00CED998 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40DC202887A14B00CED998 /* CameraView.swift */; };
+		0C40DC232888538B00CED998 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40DC222888538B00CED998 /* ImagePicker.swift */; };
 		0C4AA589281A0AA500D21F69 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AA588281A0AA500D21F69 /* Search.swift */; };
 		0C4AA58D281AF6E000D21F69 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AA58C281AF6E000D21F69 /* LoginPage.swift */; };
 		0C56450C283D85B300DA2310 /* WSBCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56450B283D85B300DA2310 /* WSBCView.swift */; };
@@ -34,6 +37,9 @@
 		0C914B0A286E15D90059031A /* SendAppFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C914B09286E15D90059031A /* SendAppFeedbackView.swift */; };
 		0CA237A82863AA1A0028A490 /* SafetyToolboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA237A72863AA1A0028A490 /* SafetyToolboxView.swift */; };
 		0CA237AC2863BED90028A490 /* WSBCFirstAidFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA237AB2863BED90028A490 /* WSBCFirstAidFormView.swift */; };
+		0CD34F95287F1CB3006DEE7A /* ToolboxResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD34F94287F1CB3006DEE7A /* ToolboxResultsView.swift */; };
+		0CD34F99287F594F006DEE7A /* Toolbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD34F98287F594F006DEE7A /* Toolbox.swift */; };
+		0CD34F9B28821E5D006DEE7A /* ToolboxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD34F9A28821E5D006DEE7A /* ToolboxManager.swift */; };
 		0CE71C6328626573009E03A0 /* QuestionOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE71C6228626573009E03A0 /* QuestionOne.swift */; };
 		0CE71C672862A0FA009E03A0 /* QuestionTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE71C662862A0FA009E03A0 /* QuestionTwo.swift */; };
 		0CE71C692862A86D009E03A0 /* QuestionThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE71C682862A86D009E03A0 /* QuestionThree.swift */; };
@@ -95,7 +101,10 @@
 		0C26393F282AE00400E43318 /* sideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sideMenuViewModel.swift; sourceTree = "<group>"; };
 		0C263941282C140300E43318 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
 		0C40A9872857D7170008026C /* moreRequirements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreRequirements.swift; sourceTree = "<group>"; };
-		0C40A9892857E4550008026C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		0C40A9892857E4550008026C /* TaskForForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskForForms.swift; sourceTree = "<group>"; };
+		0C40DC1E28874B3700CED998 /* backgroundThreads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundThreads.swift; sourceTree = "<group>"; };
+		0C40DC202887A14B00CED998 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		0C40DC222888538B00CED998 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		0C4AA588281A0AA500D21F69 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		0C4AA58C281AF6E000D21F69 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		0C56450B283D85B300DA2310 /* WSBCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSBCView.swift; sourceTree = "<group>"; };
@@ -105,6 +114,9 @@
 		0C914B09286E15D90059031A /* SendAppFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAppFeedbackView.swift; sourceTree = "<group>"; };
 		0CA237A72863AA1A0028A490 /* SafetyToolboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyToolboxView.swift; sourceTree = "<group>"; };
 		0CA237AB2863BED90028A490 /* WSBCFirstAidFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSBCFirstAidFormView.swift; sourceTree = "<group>"; };
+		0CD34F94287F1CB3006DEE7A /* ToolboxResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolboxResultsView.swift; sourceTree = "<group>"; };
+		0CD34F98287F594F006DEE7A /* Toolbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbox.swift; sourceTree = "<group>"; };
+		0CD34F9A28821E5D006DEE7A /* ToolboxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolboxManager.swift; sourceTree = "<group>"; };
 		0CE71C6228626573009E03A0 /* QuestionOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionOne.swift; sourceTree = "<group>"; };
 		0CE71C662862A0FA009E03A0 /* QuestionTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTwo.swift; sourceTree = "<group>"; };
 		0CE71C682862A86D009E03A0 /* QuestionThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionThree.swift; sourceTree = "<group>"; };
@@ -185,7 +197,7 @@
 				0CEDC6CE28737EF40023E6C8 /* Solution.swift */,
 				0CEDC6D028737F690023E6C8 /* SolutionRow.swift */,
 				0C40A9872857D7170008026C /* moreRequirements.swift */,
-				0C40A9892857E4550008026C /* Task.swift */,
+				0C40A9892857E4550008026C /* TaskForForms.swift */,
 				0C26393728297E9500E43318 /* PracticeView.swift */,
 				0CEDC6E42874DD3F0023E6C8 /* Old Tester Files */,
 			);
@@ -238,6 +250,11 @@
 				0C914B09286E15D90059031A /* SendAppFeedbackView.swift */,
 				0CEDC6E22874BA5C0023E6C8 /* ToolboxView.swift */,
 				0CEDC6E72874FE3C0023E6C8 /* PracticeSignatureView.swift */,
+				0CD34F94287F1CB3006DEE7A /* ToolboxResultsView.swift */,
+				0CD34F98287F594F006DEE7A /* Toolbox.swift */,
+				0CD34F9A28821E5D006DEE7A /* ToolboxManager.swift */,
+				0C40DC202887A14B00CED998 /* CameraView.swift */,
+				0C40DC222888538B00CED998 /* ImagePicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +295,7 @@
 				0CE71C702862B12E009E03A0 /* QuestionSeven.swift */,
 				0CE71C722862B13A009E03A0 /* QuestionEight.swift */,
 				0CA237A72863AA1A0028A490 /* SafetyToolboxView.swift */,
+				0C40DC1E28874B3700CED998 /* backgroundThreads.swift */,
 			);
 			path = "Old Tester Files";
 			sourceTree = "<group>";
@@ -417,20 +435,26 @@
 				0CEDC6E82874FE3C0023E6C8 /* PracticeSignatureView.swift in Sources */,
 				0C148E162818548E00DB84C0 /* ContentView.swift in Sources */,
 				0C914B0A286E15D90059031A /* SendAppFeedbackView.swift in Sources */,
+				0CD34F99287F594F006DEE7A /* Toolbox.swift in Sources */,
 				0CE71C732862B13A009E03A0 /* QuestionEight.swift in Sources */,
 				0C263942282C140300E43318 /* Logout.swift in Sources */,
 				0CE71C692862A86D009E03A0 /* QuestionThree.swift in Sources */,
 				0C26393C282ADFB500E43318 /* SideMenuHeaderView.swift in Sources */,
+				0C40DC1F28874B3700CED998 /* backgroundThreads.swift in Sources */,
 				0CEDC6D32874992D0023E6C8 /* Question1Redo.swift in Sources */,
 				0CE71C672862A0FA009E03A0 /* QuestionTwo.swift in Sources */,
 				0CEDC6D128737F690023E6C8 /* SolutionRow.swift in Sources */,
 				0C914B06286D0E7F0059031A /* FirstAidMenuView.swift in Sources */,
+				0C40DC212887A14B00CED998 /* CameraView.swift in Sources */,
 				0CE71C712862B12E009E03A0 /* QuestionSeven.swift in Sources */,
+				0C40DC232888538B00CED998 /* ImagePicker.swift in Sources */,
 				0C4AA58D281AF6E000D21F69 /* LoginPage.swift in Sources */,
+				0CD34F95287F1CB3006DEE7A /* ToolboxResultsView.swift in Sources */,
 				0CE71C6D2862AC8A009E03A0 /* QuestionFive.swift in Sources */,
 				0CEDC6D72874A4390023E6C8 /* Question3Redo.swift in Sources */,
 				0C148E4A2819E6E200DB84C0 /* Profile.swift in Sources */,
 				0CFED1F4284A992D00A6CE98 /* TailboardView.swift in Sources */,
+				0CD34F9B28821E5D006DEE7A /* ToolboxManager.swift in Sources */,
 				0CE71C6328626573009E03A0 /* QuestionOne.swift in Sources */,
 				0CEDC6E12874B75C0023E6C8 /* Question8Redo.swift in Sources */,
 				0CEDC6D92874A5280023E6C8 /* Question4Redo.swift in Sources */,
@@ -445,7 +469,7 @@
 				0CA237A82863AA1A0028A490 /* SafetyToolboxView.swift in Sources */,
 				0C26393E282ADFDD00E43318 /* SideMenuOptionView.swift in Sources */,
 				0C26393A282ADF8900E43318 /* SideMenuView.swift in Sources */,
-				0C40A98A2857E4550008026C /* Task.swift in Sources */,
+				0C40A98A2857E4550008026C /* TaskForForms.swift in Sources */,
 				0CE71C6F2862ADBB009E03A0 /* QuestionSix.swift in Sources */,
 				0CE71C6B2862AAD1009E03A0 /* QuestionFour.swift in Sources */,
 				0C914B08286D20A30059031A /* TailboardMenuView.swift in Sources */,
@@ -618,6 +642,7 @@
 				DEVELOPMENT_TEAM = DBBU2H4AT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "MTE Corner requires access to camera - as it will be capturing pictures of hazards";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -647,6 +672,7 @@
 				DEVELOPMENT_TEAM = DBBU2H4AT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "MTE Corner requires access to camera - as it will be capturing pictures of hazards";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

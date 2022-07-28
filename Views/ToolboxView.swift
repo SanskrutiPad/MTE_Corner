@@ -12,7 +12,7 @@ struct ToolboxView: View {
     @State public var selectionRetryButton: Int? = nil
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ZStack {
                 Color("YVR Light Blue").edgesIgnoringSafeArea(.all)
                 ScrollView {
@@ -85,7 +85,8 @@ struct ToolboxView: View {
                 }
             }
         }
-    }
+//        .offset(y: -60)
+//    }
 }
 
 struct ToolboxView_Previews: PreviewProvider {

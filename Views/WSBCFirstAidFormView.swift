@@ -48,7 +48,7 @@ struct WSBCFirstAidFormView: View {
     
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack {
                 Form {
                         Section(header: Text("This record must be kept by the employer for three (3) years. This form must be kept at the employer's workplace. Do NOT submit to WorkSafeBC.").frame(alignment: .leading).foregroundColor(.white).font(Font.headline.weight(.bold)).padding(.bottom)) {
@@ -160,7 +160,7 @@ struct WSBCFirstAidFormView: View {
             
         }
         
-    }
+//    }
 }
 
 

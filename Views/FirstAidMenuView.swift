@@ -25,7 +25,7 @@ struct FirstAidMenuView: View {
         
         ZStack {
             Color("YVR Light Blue").edgesIgnoringSafeArea(.all)
-            NavigationView {
+//            NavigationView {
 //                    List(firstAidFormList) { item in
 //                        Text(item.formName)
 //                    }
@@ -73,7 +73,7 @@ struct FirstAidMenuView: View {
                 
             }
             
-        }
+//        }
         
     }
 }

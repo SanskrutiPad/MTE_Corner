@@ -28,7 +28,7 @@ struct SendAppFeedbackView: View {
         ZStack {
             Color("YVR Light Blue").edgesIgnoringSafeArea(.all)
             VStack {
-                NavigationView {
+//                NavigationView {
                         
                     Form (){
                         Section (header: Text("NOTE: Please provide as much detail as possible").frame(alignment: .leading).foregroundColor(.white).font(Font.headline.weight(.bold)).padding(.bottom)){
@@ -70,7 +70,7 @@ struct SendAppFeedbackView: View {
                     .foregroundColor(darkText)
                     .font(.system(size: 14))
                     
-                }
+//                }
                 HStack {
                     Button("Clear Form") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/

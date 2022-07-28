@@ -14,7 +14,7 @@ struct TailboardMenuView: View {
     var body: some View {
         ZStack {
             Color("YVR Light Blue").edgesIgnoringSafeArea(.all)
-            NavigationView {
+//            NavigationView {
                     
                 Form {
                         NavigationLink(destination: TailboardView(), tag: 1, selection: $selectionWSBCForm) {
@@ -67,7 +67,7 @@ struct TailboardMenuView: View {
                 .foregroundColor(darkText)
                 .font(.system(size: 14))
                 
-            }
+//            }
             
         }
     }

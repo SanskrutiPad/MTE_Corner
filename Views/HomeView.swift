@@ -248,6 +248,7 @@ struct HomePage: View {
                 }
             }
         }   // end of Home Page
+        .accentColor(Color("YVR Dark Blue"))
     
     }
     // function pops up a share sheet for 'Share' button
@@ -262,60 +263,6 @@ struct HomePage_Previews: PreviewProvider {
     }
 }
 
-
-
-
-
-
-//struct ShareButton: View {
-//    var body: some View {
-//        Button {
-//            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-//        } label: {
-//            VStack {
-//                Text("SHARE")
-//                Image(systemName: "arrowshape.turn.up.left.2")
-//                    .font(.system(size: 40))
-//            }
-//        }
-//        .frame(width: 90, height: 90)
-//        .font(Font.headline.weight(.medium))
-//        .padding()
-//        .foregroundColor(Color("YVR Dark Blue"))
-//        .background(Color("YVR Light Blue"))
-//        .cornerRadius(25)
-//        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-//    }
-//}
-
-
-
-
-
-
-//struct YVRNewsButton: View {
-//    var body: some View {
-//        Button {
-//            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-//        } label: {
-//            VStack {
-//                Text("YVR NEWS")
-//                Image(systemName: "newspaper")
-//                    .font(.system(size: 40))
-//                    .foregroundColor(darkText)
-//
-//            }
-//        }
-//        .frame(width: 90, height: 90)
-//        .padding()
-//        .font(Font.headline.weight(.medium))
-//        .foregroundColor(darkText)
-//        .background(Color("YVR Light Blue"))
-//        .cornerRadius(25)
-//        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-//    }
-//}
-//
 
 
 

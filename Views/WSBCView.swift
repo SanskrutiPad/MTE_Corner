@@ -98,7 +98,7 @@ struct WSBCView: View {
     var body: some View {
         
             
-            NavigationView {
+//            NavigationView {
                 ZStack {
                     VStack {
                         
@@ -519,7 +519,7 @@ struct WSBCView: View {
             }
         
         
-    }
+//    }
     
 }
 

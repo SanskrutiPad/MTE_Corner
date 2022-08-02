@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TailboardView: View {
     
+    
 //    Textfield variables
     @State var location = ""
     @State var dateAndTime : Date = Date()
@@ -24,15 +25,36 @@ struct TailboardView: View {
     @State var taskMember5 = ""
     @State var taskMember6 = ""
     
-    
+//   Camera/Photo Library Sheet 1
     @State private var sheetIsShowing: Bool = false
     @State private var showImagePicker: Bool = false
     @State private var srcType: UIImagePickerController.SourceType = .camera
     @State private var image: UIImage?
     @State private var text = ""
     
+    //   Camera/Photo Library Sheet 2
+        @State private var sheetIsShowing2: Bool = false
+        @State private var showImagePicker2: Bool = false
+        @State private var srcType2: UIImagePickerController.SourceType = .camera
+        @State private var image2: UIImage?
+    
+// Hazard 1 Description
+    @State var describeHaz1 = ""
+    @State private var selectedWhoHaz1 = "Safety"
+        let whoHaz1 = ["Safety", "Environment", "Operation"]
+    @State var actionReq1 = "Type Here"
+    
+// Hazard 2 Description
+    @State var describeHaz2 = ""
+    @State private var selectedWhoHaz2 = "Safety"
+        let whoHaz2 = ["Safety", "Environment", "Operation"]
+    @State var actionReq2 = "Type Here"
+    
+    
+    
+    
     @State private var taskDiscussed = [TaskForForms(name: "Discussed", isCompleted: false),TaskForForms(name: "N/A", isCompleted: false)]
-    @State private var moreRequirementsDiscussed = [moreReqs(name1: "Yes", isCompleted1: false), moreReqs(name1: "No", isCompleted1: false), moreReqs(name1: "Attached", isCompleted1: false)]
+    @State private var moreRequirementsDiscussed = [moreReqs(name1: "Yes", isCompleted1: false), moreReqs(name1: "No", isCompleted1: false), moreReqs(name1: "Completed", isCompleted1: false)]
     
     //    Initializes Background Colour
         init() {
@@ -56,6 +78,7 @@ struct TailboardView: View {
                                     .foregroundColor(.black)
                                 DatePicker("Date & Time", selection: $dateAndTime,
                                            displayedComponents: [.date, .hourAndMinute])
+                                        .fixedSize(horizontal: false, vertical: true)
                                         .foregroundColor(darkText)
                                 TextField("Supervisor", text: $supervisor)
                                     .padding(.top)
@@ -100,6 +123,7 @@ struct TailboardView: View {
                                         }
                         
                         Section {
+//                            Hazard 1
                             Group {
                                 Text("Hazards")
                                     .bold()
@@ -107,11 +131,16 @@ struct TailboardView: View {
                                     .padding(.top)
                                     .font(.system(size: 20))
                                     .frame(maxWidth: .infinity, alignment: .leading)
+                                Text("Hazard 1:")
+                                        .padding(.top)
+                                        .font(.system(size: 16))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                 HStack {
                                     Image(uiImage: image ?? UIImage(named: "ImagePlaceholder")!)
                                         .resizable()
                                     
                                         .frame(width: 100, height: 100)
+                                    Spacer()
                                     
                                     VStack {
                                         Button("Choose Picture") {
@@ -140,6 +169,83 @@ struct TailboardView: View {
                                     }
                                 }
                                 
+                                TextField("Describe Hazard", text: $describeHaz1)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                Picker("Who:", selection: $selectedWhoHaz1) {
+                                                        ForEach(whoHaz1, id: \.self) {
+                                                            Text($0)
+                                                        }
+                                }.foregroundColor(darkText)
+                                Text("Action Required:")
+                                        .padding(.top)
+                                        .foregroundColor(darkText)
+                                        .font(.system(size: 16))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                TextEditor(text: $actionReq1)
+                                    .padding()
+                                    .foregroundColor(.black)
+                                
+                                
+                            }
+                            
+//                            Hazard 2
+                            Group {
+                                Text("Hazard 2:")
+                                        .padding(.top)
+                                        .font(.system(size: 16))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                HStack {
+                                    Image(uiImage: image2 ?? UIImage(named: "ImagePlaceholder")!)
+                                        .resizable()
+                                    
+                                        .frame(width: 100, height: 100)
+                                    Spacer()
+                                    
+                                    VStack {
+                                        Button("Choose Picture") {
+                                            self.sheetIsShowing2 = true
+                                        }
+                                        .padding(15)
+                                        .background(Color.white)
+                                        .foregroundColor(Color("YVR Dark Blue"))
+                                        .cornerRadius(20)
+                                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                    //                    .actionSheet will be able to provide users the option of choosing photo from camera roll or choosing photo from image library
+                                        .actionSheet(isPresented: $sheetIsShowing2) {
+                                            ActionSheet(title: Text("Choose"), buttons: [
+                                                .default(Text("Photo Library")) {
+                                                    self.showImagePicker2 = true
+                                                    self.srcType2 = .photoLibrary
+                                                },
+                                                .default(Text("Camera")) {
+                                                    self.showImagePicker2 = true
+                                                    self.srcType2 = .camera
+                                                },
+                                                .cancel()
+                                            ])
+                                    }
+                                        
+                                    }
+                                }
+                                
+                                TextField("Describe Hazard", text: $describeHaz2)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                Picker("Who:", selection: $selectedWhoHaz2) {
+                                                        ForEach(whoHaz2, id: \.self) {
+                                                            Text($0)
+                                                        }
+                                }.foregroundColor(darkText)
+                                Text("Action Required:")
+                                        .padding(.top)
+                                        .foregroundColor(darkText)
+                                        .font(.system(size: 16))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                TextEditor(text: $actionReq2)
+                                    .padding()
+                                    .foregroundColor(.black)
+                                
                                 
                             }
                         }
@@ -155,7 +261,7 @@ struct TailboardView: View {
                                         .foregroundColor(darkText)
                                         .padding(.top)
                                         .font(.system(size: 20))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
                                 
                                 VStack {
                                     Text("Canada Labor Code OSH Regulations")
@@ -163,7 +269,7 @@ struct TailboardView: View {
                                         .foregroundColor(darkText)
                                     HStack {
                                         discussedOrNotApplicable()
-                                    }
+                                    }.frame(maxWidth: .infinity)
                                     
                                 }
                                 VStack {
@@ -173,7 +279,7 @@ struct TailboardView: View {
                                     HStack {
                                         discussedOrNotApplicable()
                                             .padding(.leading)
-                                    }
+                                    }.frame(maxWidth: .infinity)
                                     
                                 }
                                 VStack {
@@ -182,53 +288,58 @@ struct TailboardView: View {
                                         .foregroundColor(darkText)
                                         .frame(alignment: .leading)
                                     HStack {
-                                        discussedOrNotApplicable()
+                                            discussedOrNotApplicable()
                                             .padding(.leading, 40)
-                                    }
+                                    }.frame(maxWidth: .infinity)
                                     
                                 }
                                 VStack {
                                     Text("Confined Space Entry Procedures*")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
+                                        discussedOrNotApplicable()
                                     
-                                }
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Fall Protection*")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
+                                        discussedOrNotApplicable()
                                     
-                                }
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Safe cutting/Welding Practices*")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
+                                        discussedOrNotApplicable()
                                     
-                                }
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Pertinent Sections of MSDS")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
+                                        discussedOrNotApplicable()
                                     
-                                }
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Controlled Access to Work Area")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
+                                        discussedOrNotApplicable()
                                     
-                                }
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Personal Protective Equipment")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
+                                        discussedOrNotApplicable()
                                     
-                                }
+                                }.frame(maxWidth: .infinity)
                             }
                             
                             Group {
@@ -236,32 +347,33 @@ struct TailboardView: View {
                                     Text("Condition of tools, equipement, and vehicles")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
+                                
                                     Text("Electrical Safety")
                                         .bold()
                                         .foregroundColor(darkText)
                                         .padding(.top)
                                         .font(.system(size: 20))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                 VStack {
                                     Text("PPE (e.g. inspection of AR SR PPE)")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
                                 VStack {
                                     Text("Electrical Testing Equipment & Tools")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
                                 VStack {
                                     Text("Other Equipment (e.g. non conductive ladders)")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
                                 
                                 
                             }
@@ -276,19 +388,20 @@ struct TailboardView: View {
                                 .foregroundColor(darkText)
                                 .padding(.top)
                                 .font(.system(size: 20))
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             VStack {
                                 Text("Environmental Standards & Regulations")
                                     .font(.system(size: 16))
                                     .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
+                                    discussedOrNotApplicable()
+                            }.frame(maxWidth: .infinity)
+                            
                             VStack {
                                 Text("Spill Response Plan")
                                     .font(.system(size: 16))
                                     .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
+                                    discussedOrNotApplicable()
+                            }.frame(maxWidth: .infinity)
                         }
     //                    OPERATIONS
                         Section {
@@ -304,62 +417,72 @@ struct TailboardView: View {
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
                                     discussedOrNotApplicable()
-                                }
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Airfield Lighting Control Regulations")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
                                     discussedOrNotApplicable()
-                                }
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("AVOP Regulations")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
                                     discussedOrNotApplicable()
-                                }
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Airside Security Regulations")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Airport Noise Regulations")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Operations/Tower Notification")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Weather conditions")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
+                                
                                 VStack {
                                     Text("Housekeeping")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
+
                                 VStack {
                                     Text("Impact on emergency eqpt. & systems")
                                         .font(.system(size: 16))
                                         .foregroundColor(darkText)
-                                    discussedOrNotApplicable()
-                                }
+                                        discussedOrNotApplicable()
+                                }.frame(maxWidth: .infinity)
+
                             }
                             VStack {
                                 Text("Public Safety")
                                     .font(.system(size: 16))
                                     .foregroundColor(darkText)
-                                discussedOrNotApplicable()
-                            }
+                                    discussedOrNotApplicable()
+                            }.frame(maxWidth: .infinity)
+
                         }
                         Section {
                             Text("More Requirements")
@@ -367,40 +490,47 @@ struct TailboardView: View {
                                 .foregroundColor(darkText)
                                 .padding(.top)
                                 .font(.system(size: 20))
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             VStack {
                                 Text("(*) Is a Fall Hazard Assessment Form Required?")
+                                    .fixedSize(horizontal: false, vertical: true)
                                     .font(.system(size: 16))
                                     .foregroundColor(darkText)
-                                yesNoAttached()
-                            }
+                                    yesNoAttached()
+                            }.frame(maxWidth: .infinity)
+
                             VStack {
                                 Text("(*) Have Provisions for Rescue been addressed?")
+                                    .fixedSize(horizontal: false, vertical: true)
                                     .font(.system(size: 16))
                                     .foregroundColor(darkText)
-                                yesNoAttached()
-                            }
+                                    yesNoAttached()
+                            }.frame(maxWidth: .infinity)
+
                             VStack {
                                 Text("(*) Is a Confined Space Permit Required?")
                                     .font(.system(size: 16))
                                     .foregroundColor(darkText)
-                                yesNoAttached()
-                            }
+                                    yesNoAttached()
+                            }.frame(maxWidth: .infinity)
+
                             VStack {
                                 Text("(*) Is a Hot Work Permit Required?")
                                     .font(.system(size: 16))
                                     .foregroundColor(darkText)
-                                yesNoAttached()
-                            }
+                                    yesNoAttached()
+                            }.frame(maxWidth: .infinity)
+
                             
                                                     
                         }
                         
                         Section {
                             Text("Review your assessment and revise if necessary:")
+                                .fixedSize(horizontal: false, vertical: true)
                                 .font(.system(size: 18))
                                 .foregroundColor(darkText)
-                            Text("Signature P.I.C.")
+                            Text("Signature")
                                 .font(.system(size: 18))
                                 .foregroundColor(darkText)
                             
@@ -466,7 +596,7 @@ struct discussedOrNotApplicable: View {
 
 
 struct yesNoAttached: View {
-    @State private var moreRequirementsDiscussed = [moreReqs(name1: "Yes", isCompleted1: false), moreReqs(name1: "No", isCompleted1: false), moreReqs(name1: "Attached", isCompleted1: false)]
+    @State private var moreRequirementsDiscussed = [moreReqs(name1: "Yes", isCompleted1: false), moreReqs(name1: "No", isCompleted1: false), moreReqs(name1: "Completed", isCompleted1: false)]
     var body: some View {
         HStack {
 

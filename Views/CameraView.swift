@@ -24,36 +24,7 @@ struct CameraView: View {
                         .foregroundColor(.white)
                         .font(Font.title.weight(.medium))
                     
-                    HStack {
-                        Image(uiImage: image ?? UIImage(named: "ImagePlaceholder")!)
-                            .resizable()
-                            .frame(width: 150, height: 150)
-                        
-                        Button("Choose Picture") {
-                            self.sheetIsShowing = true
-                        }
-                        .padding(15)
-                        .background(Color.white)
-                        .foregroundColor(Color("YVR Dark Blue"))
-                        .cornerRadius(20)
-                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-    //                    .actionSheet will be able to provide users the option of choosing photo from camera roll or choosing photo from image library
-                        .actionSheet(isPresented: $sheetIsShowing) {
-                            ActionSheet(title: Text("Choose"), buttons: [
-                                .default(Text("Photo Library")) {
-                                    self.showImagePicker = true
-                                    self.srcType = .photoLibrary
-                                },
-                                .default(Text("Camera")) {
-                                    self.showImagePicker = true
-                                    self.srcType = .camera
-                                    
-                                },
-                                .cancel()
-                            
-                            ])
-                        }
-                    }
+                   
                     
                     VStack {
                         HStack {

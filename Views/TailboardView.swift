@@ -24,6 +24,13 @@ struct TailboardView: View {
     @State var taskMember5 = ""
     @State var taskMember6 = ""
     
+    
+    @State private var sheetIsShowing: Bool = false
+    @State private var showImagePicker: Bool = false
+    @State private var srcType: UIImagePickerController.SourceType = .camera
+    @State private var image: UIImage?
+    @State private var text = ""
+    
     @State private var taskDiscussed = [TaskForForms(name: "Discussed", isCompleted: false),TaskForForms(name: "N/A", isCompleted: false)]
     @State private var moreRequirementsDiscussed = [moreReqs(name1: "Yes", isCompleted1: false), moreReqs(name1: "No", isCompleted1: false), moreReqs(name1: "Attached", isCompleted1: false)]
     
@@ -48,38 +55,93 @@ struct TailboardView: View {
                                     .padding(.top)
                                     .foregroundColor(.black)
                                 DatePicker("Date & Time", selection: $dateAndTime,
-                                           displayedComponents: [.date])
-                                            .accentColor(darkText)
-                                TextField("Location", text: $location)
+                                           displayedComponents: [.date, .hourAndMinute])
+                                        .foregroundColor(darkText)
+                                TextField("Supervisor", text: $supervisor)
                                     .padding(.top)
                                     .foregroundColor(.black)
-                                TextField("Location", text: $location)
+                                TextField("Person in Charge", text: $personInCharge)
                                     .padding(.top)
                                     .foregroundColor(.black)
-                                TextField("Location", text: $location)
+                                TextField("Safety Watch", text: $safetyWatch)
                                     .padding(.top)
                                     .foregroundColor(.black)
-                                TextField("Location", text: $location)
+                                TextField("Work Order #", text: $workOrdernum)
                                     .padding(.top)
                                     .foregroundColor(.black)
-                                TextField("Location", text: $location)
+                                TextField("Task Members", text: $taskMember1)
                                     .padding(.top)
                                     .foregroundColor(.black)
-                                TextField("Location", text: $location)
+                                TextField("Task Members", text: $taskMember2)
                                     .padding(.top)
                                     .foregroundColor(.black)
-                                TextField("Location", text: $location)
+                                TextField("Task Members", text: $taskMember3)
                                     .padding(.top)
                                     .foregroundColor(.black)
-                                TextField("Location", text: $location)
+                                TextField("Task Members", text: $taskMember4)
                                     .padding(.top)
                                     .foregroundColor(.black)
                             }
                             
                             Group {
                                 
+                                TextField("Task Members", text: $taskMember5)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                TextField("Task Members", text: $taskMember6)
+                                    .padding(.top)
+                                    .foregroundColor(.black)
+                                
                             }
                             
+                        }
+                        
+                        Section (header: Text("Brief Description of Job:").frame(alignment: .leading).foregroundColor(.white).cornerRadius(20).font(Font.headline.weight(.bold))){
+                                        }
+                        
+                        Section {
+                            Group {
+                                Text("Hazards")
+                                    .bold()
+                                    .foregroundColor(darkText)
+                                    .padding(.top)
+                                    .font(.system(size: 20))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                HStack {
+                                    Image(uiImage: image ?? UIImage(named: "ImagePlaceholder")!)
+                                        .resizable()
+                                    
+                                        .frame(width: 100, height: 100)
+                                    
+                                    VStack {
+                                        Button("Choose Picture") {
+                                            self.sheetIsShowing = true
+                                        }
+                                        .padding(15)
+                                        .background(Color.white)
+                                        .foregroundColor(Color("YVR Dark Blue"))
+                                        .cornerRadius(20)
+                                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                    //                    .actionSheet will be able to provide users the option of choosing photo from camera roll or choosing photo from image library
+                                        .actionSheet(isPresented: $sheetIsShowing) {
+                                            ActionSheet(title: Text("Choose"), buttons: [
+                                                .default(Text("Photo Library")) {
+                                                    self.showImagePicker = true
+                                                    self.srcType = .photoLibrary
+                                                },
+                                                .default(Text("Camera")) {
+                                                    self.showImagePicker = true
+                                                    self.srcType = .camera
+                                                },
+                                                .cancel()
+                                            ])
+                                    }
+                                        
+                                    }
+                                }
+                                
+                                
+                            }
                         }
                         
                         Section (header: Text("Ensure that you discuss:").frame(alignment: .leading).foregroundColor(.white).cornerRadius(20).font(Font.headline.weight(.bold))){
@@ -372,6 +434,9 @@ struct TailboardView: View {
                     
                 }
                 .navigationTitle("Tailboard Assessment")
+            }
+            .sheet(isPresented: $showImagePicker) {
+                ImagePicker(image: self.$image, sheetIsShown: self.$showImagePicker, srcType: self.srcType)
             }
         }
     

@@ -30,6 +30,7 @@
 		0C40DC232888538B00CED998 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C40DC222888538B00CED998 /* ImagePicker.swift */; };
 		0C4AA589281A0AA500D21F69 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AA588281A0AA500D21F69 /* Search.swift */; };
 		0C4AA58D281AF6E000D21F69 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4AA58C281AF6E000D21F69 /* LoginPage.swift */; };
+		0C4D9E51289C65E00083464F /* EmergencyCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4D9E50289C65E00083464F /* EmergencyCallView.swift */; };
 		0C56450C283D85B300DA2310 /* WSBCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C56450B283D85B300DA2310 /* WSBCView.swift */; };
 		0C7068E02831FE3300F6277D /* QuizSamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7068DF2831FE3300F6277D /* QuizSamp.swift */; };
 		0C914B06286D0E7F0059031A /* FirstAidMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C914B05286D0E7F0059031A /* FirstAidMenuView.swift */; };
@@ -107,6 +108,7 @@
 		0C40DC222888538B00CED998 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		0C4AA588281A0AA500D21F69 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		0C4AA58C281AF6E000D21F69 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		0C4D9E50289C65E00083464F /* EmergencyCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyCallView.swift; sourceTree = "<group>"; };
 		0C56450B283D85B300DA2310 /* WSBCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSBCView.swift; sourceTree = "<group>"; };
 		0C7068DF2831FE3300F6277D /* QuizSamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSamp.swift; sourceTree = "<group>"; };
 		0C914B05286D0E7F0059031A /* FirstAidMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAidMenuView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				0CD34F9A28821E5D006DEE7A /* ToolboxManager.swift */,
 				0C40DC202887A14B00CED998 /* CameraView.swift */,
 				0C40DC222888538B00CED998 /* ImagePicker.swift */,
+				0C4D9E50289C65E00083464F /* EmergencyCallView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				0CEDC6DB2874A6AC0023E6C8 /* Question5Redo.swift in Sources */,
 				0CEDC6CF28737EF40023E6C8 /* Solution.swift in Sources */,
 				0C26393828297E9500E43318 /* PracticeView.swift in Sources */,
+				0C4D9E51289C65E00083464F /* EmergencyCallView.swift in Sources */,
 				0CA237A82863AA1A0028A490 /* SafetyToolboxView.swift in Sources */,
 				0C26393E282ADFDD00E43318 /* SideMenuOptionView.swift in Sources */,
 				0C26393A282ADF8900E43318 /* SideMenuView.swift in Sources */,

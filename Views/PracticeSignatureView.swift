@@ -8,36 +8,91 @@
 import SwiftUI
 import PencilKit
 
+//Line data structure
+struct Line {
+    var points: [CGPoint]
+    var color : Color
+}
+
+
 
 struct PracticeSignatureView: View {
-    let canvasView = PencilKitRepresentable()
-        let imgRect = CGRect(x: 0, y: 0, width: 400.0, height: 100.0)
+
+    
+    @State private var lines: [Line] = []
+    @State private var selectedColor = Color.black
     
     var body: some View {
         VStack {
-//                  Text ("Sign here:")
-//                  canvasView.frame(height: 100.0)
-//                      .border(Color.gray, width: 5)
-//                  Button(action: {
-//                      self.saveSignature()
-//                  }) {
-//                      Text("Save Signature")
-//                  }
-              }
-    }
-//    func saveSignature() {
-//        let image = canvasView.canvas.drawing.image(from: imgRect, scale: 1.0)
-//
-//
-//    }
-}
+            HStack {
+                Text("Choose Color")
+                ForEach([Color.black, Color.blue], id: \.self) { c in
+                    colorButton(color: c)
+                }
+                
+                clearSigButton()
+            }
 
-struct PencilKitRepresentable : UIViewRepresentable {
-    let canvas = PKCanvasView(frame: .init(x: 0, y: 0, width: 400, height: 80))
-    func makeUIView(context: Context) -> PKCanvasView {
-        return canvas
+            //   Draw Canvas -> so it knows how to draw
+            Canvas { canvasContext, size in
+                for line in lines {
+//                    builds a line/creates path from drawing
+                    var path = Path()
+                    path.addLines(line.points)
+                    
+                    canvasContext.stroke(path, with: .color(line.color), style : StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
+                }
+            }
+            
+//          We've added a gesture recognizer so that Canvas will actually provide us a drawing
+            .gesture(
+                DragGesture(minimumDistance: 0, coordinateSpace: .local)
+            .onChanged({ value in
+                let position = value.location
+                
+                if value.translation == .zero {
+                    lines.append(Line(points: [position], color: selectedColor))
+                } else {
+                    guard let lastIdx = lines.indices.last else {
+                        return
+                    }
+                    
+                    lines[lastIdx].points.append(position)
+                }
+            })
+                )
+        }
+        
     }
-    func updateUIView(_ uiView: PKCanvasView, context: Context) { }
+    
+    @ViewBuilder
+//    You typically use ViewBuilder as a parameter attribute for child view-producing closure parameters, allowing those closures to provide multiple child views. For example
+    func colorButton(color: Color) -> some View {
+        Button {
+            selectedColor = color
+        } label: {
+            Image(systemName: "circle.fill")
+                .font(.largeTitle)
+                .foregroundColor(color)
+                .mask {
+                    Image(systemName: "applepencil")
+                        .font(.largeTitle)
+                }
+        }
+    }
+    
+    @ViewBuilder
+    func clearSigButton() -> some View {
+        Button {
+//            sets all lines to empty
+            lines = []
+        } label: {
+            Image(systemName: "pencil.tip.crop.circle.badge.minus")
+                .font(.largeTitle)
+                .foregroundColor(lightGreyForHome)
+                
+        }
+    }
 }
 
 

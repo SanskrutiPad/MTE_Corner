@@ -64,7 +64,6 @@ struct TailboardView: View {
     
     
     var body: some View {
-            NavigationView {
                 VStack {
                     
                     
@@ -564,7 +563,7 @@ struct TailboardView: View {
                     
                 }
                 .navigationTitle("Tailboard Assessment")
-            }
+            
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(image: self.$image, sheetIsShown: self.$showImagePicker, srcType: self.srcType)
             }

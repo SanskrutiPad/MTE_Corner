@@ -101,12 +101,7 @@ struct HomePage: View {
                                 
                                 // Line #2 of buttons
                                 HStack {
-                                    
-//                                    VStack {
-//                                        Link (destination: URL(string: "https://tasks.office.com/yvr.ca/en-US/Home/Planner/"), label: {
-//
-//                                        })
-//                                    }
+
 //                                    ReportToPlannerButton()
                                     Button("REPORT TO PLANNER") {
                                         if let plannerURL = URL(string: "https://tasks.office.com/yvr.ca/en-US/Home/Planner/") {

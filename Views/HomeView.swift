@@ -25,22 +25,24 @@ struct HomePage: View {
 //---------------------------------------- HOME PAGE -------------------------------------------------------
 //        NavigationView {
             ZStack {
-    //            Color("lightGreyUni").ignoresSafeArea(.all)
+                Color("YVR Light Blue").ignoresSafeArea(.all)
                 ScrollView {
+                    
                     VStack {
                                 // App 'Header'
                                 HStack {
                                     
-                                    Image("YVRLogo_VAA_BlueText_CMYK").resizable().aspectRatio(contentMode:.fit)
+                                    Image("Logo").resizable().aspectRatio(contentMode:.fit)
+                                        .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                         
-                                    Text("MTE Corner")
+                                    Text("Maintenance Corner")
                                         .padding()
-                                        .foregroundColor(Color("YVR Dark Blue"))
+                                        .foregroundColor(darkText)
                                         .font(Font.headline.weight(.heavy))
-                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                        .frame(maxWidth: .infinity, alignment: . center)
+                                    
                                 }
                                 Divider().background(Color.black)
-                                Spacer()
                                 Spacer()
                                 
                                 
@@ -66,7 +68,7 @@ struct HomePage: View {
                                                         .frame(width: 150, height: 150)
                                                         .padding()
                                                         .foregroundColor(darkText)
-                                                        .background(Color("YVR Light Blue"))
+                                                        .background(Color("lightGreyUni"))
                                                         .cornerRadius(25)
                                                         .shadow(color: .blue, radius: 2, x: 0, y: 2)
 
@@ -92,7 +94,7 @@ struct HomePage: View {
                                                         .frame(width: 150, height: 150)
                                                         .padding()
                                                         .font(Font.headline.weight(.medium))
-                                                        .background(Color("YVR Light Blue"))
+                                                        .background(Color("lightGreyUni"))
                                                         .foregroundColor(darkText)
                                                         .cornerRadius(25)
                                                         .shadow(color: .blue, radius: 2, x: 0, y: 2)
@@ -121,7 +123,7 @@ struct HomePage: View {
                                                                             .padding()
                                                                             .foregroundColor(darkText)
                                                                             .font(Font.headline.weight(.medium))
-                                                                            .background(Color("YVR Light Blue"))
+                                                                            .background(Color("lightGreyUni"))
                                                                             .cornerRadius(25)
                                                                         .shadow(color: .red, radius: 2, x: 0, y: 2)
                                     }
@@ -148,7 +150,7 @@ struct HomePage: View {
                                                 .padding()
                                                 .font(Font.headline.weight(.medium))
                                                 .foregroundColor(darkText)
-                                                .background(Color("YVR Light Blue"))
+                                                .background(Color("lightGreyUni"))
                                                 .cornerRadius(25)
                                                 .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                     }
@@ -172,7 +174,7 @@ struct HomePage: View {
                                                 .padding()
                                                 .font(Font.headline.weight(.medium))
                                                 .foregroundColor(darkText)
-                                                .background(Color("YVR Light Blue"))
+                                                .background(Color("lightGreyUni"))
                                                 .cornerRadius(25)
                                             .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                     }
@@ -196,7 +198,7 @@ struct HomePage: View {
                                     .font(Font.headline.weight(.medium))
                                     .padding()
                                     .foregroundColor(darkText)
-                                    .background(Color("YVR Light Blue"))
+                                    .background(Color("lightGreyUni"))
                                     .cornerRadius(25)
                                     .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                     
@@ -221,7 +223,7 @@ struct HomePage: View {
                                     .padding()
                                     .font(Font.headline.weight(.medium))
                                     .foregroundColor(darkText)
-                                    .background(Color("YVR Light Blue"))
+                                    .background(Color("lightGreyUni"))
                                     .cornerRadius(25)
                                     .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                     
@@ -242,7 +244,7 @@ struct HomePage: View {
                                                     .padding()
                                                     .font(Font.headline.weight(.medium))
                                                             .foregroundColor(darkText)
-                                                            .background(Color("YVR Light Blue"))
+                                                            .background(Color("lightGreyUni"))
                                                             .cornerRadius(25)
                                                             .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                                 }
@@ -265,7 +267,7 @@ struct HomePage: View {
                             .padding()
                             .font(Font.headline.weight(.medium))
                             .foregroundColor(darkText)
-                            .background(Color("YVR Light Blue"))
+                            .background(Color("lightGreyUni"))
                             .cornerRadius(25)
                             .shadow(color: .blue, radius: 2, x: 0, y: 2)
                         }

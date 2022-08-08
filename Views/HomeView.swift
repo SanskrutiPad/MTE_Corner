@@ -108,7 +108,7 @@ struct HomePage: View {
                                 HStack {
                                     
                                     //                                  EMERGENCY CALL BUTTON
-                                    NavigationLink(destination: EmergencyCallView(), tag:1, selection: $selectionFirstAid) {
+                                    NavigationLink(destination: EmergencyCallView(), tag:1, selection: $selectionEmergencyCall) {
                                         Button {
                                                                                 print("Emergency Call Button Pressed")
                                             self.selectionEmergencyCall = 1

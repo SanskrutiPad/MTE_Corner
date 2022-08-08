@@ -22,7 +22,7 @@ struct TailboardMenuView: View {
                                         self.selectionWSBCForm = 1
                                     } label: {
                                         VStack {
-                                            Text("Tailboard 1")
+                                            Text("Tailboard")
                                                 .padding()
                                                 .frame(alignment: .leading)
                                                 .font(Font.headline.weight(.medium))

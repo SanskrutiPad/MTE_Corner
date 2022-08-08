@@ -532,6 +532,8 @@ struct TailboardView: View {
                             Text("Signature")
                                 .font(.system(size: 18))
                                 .foregroundColor(darkText)
+                            SignatureView()
+                                .frame(width: 300, height: 180)
                             
                             HStack {
                                 Button("Save Tailboard") {

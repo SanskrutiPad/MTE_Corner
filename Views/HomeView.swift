@@ -15,6 +15,7 @@ let darkText = Color(red: 12.0/255.0, green: 54.0/255.0, blue: 122.0/255.0)
 struct HomePage: View {
     @State var selectionWelcome: Int? = nil
     @State var selectionDashboard: Int? = nil
+    @State var selectionEmergencyCall: Int? = nil
     @State var selectionFirstAid: Int? = nil
     @State var selectionTailboardMenuView: Int? = nil
     @State var selectionAppFeedbackView: Int? = nil
@@ -22,7 +23,7 @@ struct HomePage: View {
    
     var body: some View {
 //---------------------------------------- HOME PAGE -------------------------------------------------------
-        NavigationView {
+//        NavigationView {
             ZStack {
     //            Color("lightGreyUni").ignoresSafeArea(.all)
                 ScrollView {
@@ -31,8 +32,8 @@ struct HomePage: View {
                                 HStack {
                                     
                                     Image("YVRLogo_VAA_BlueText_CMYK").resizable().aspectRatio(contentMode:.fit)
-                                        .frame(width: 140, height: 60, alignment: .leading)
-                                    Text("Maintenance Corner")
+                                        
+                                    Text("MTE Corner")
                                         .padding()
                                         .foregroundColor(Color("YVR Dark Blue"))
                                         .font(Font.headline.weight(.heavy))
@@ -67,7 +68,7 @@ struct HomePage: View {
                                                         .foregroundColor(darkText)
                                                         .background(Color("YVR Light Blue"))
                                                         .cornerRadius(25)
-                                                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                                                        .shadow(color: .blue, radius: 2, x: 0, y: 2)
 
                                                 }
                                     }
@@ -82,7 +83,7 @@ struct HomePage: View {
                                                             self.selectionDashboard = 1
                                                         } label: {
                                                             VStack {
-                                                                Text("DASHBOARD")
+                                                                Text("Dashboard")
                                                                 Image(systemName: "chart.bar")
                                                                     .padding()
                                                                     .font(.system(size: 60))
@@ -94,27 +95,40 @@ struct HomePage: View {
                                                         .background(Color("YVR Light Blue"))
                                                         .foregroundColor(darkText)
                                                         .cornerRadius(25)
-                                                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                                                        .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                                     }
                                                     
                                                 }
                                 
                                 // Line #2 of buttons
                                 HStack {
-
-//                                    ReportToPlannerButton()
-                                    Button("REPORT TO PLANNER") {
-                                        if let plannerURL = URL(string: "https://tasks.office.com/yvr.ca/en-US/Home/Planner/") {
-                                            UIApplication.shared.open(plannerURL)
-                                        }
+                                    
+                                    //                                  EMERGENCY CALL BUTTON
+                                    NavigationLink(destination: EmergencyCallView(), tag:1, selection: $selectionFirstAid) {
+                                        Button {
+                                                                                print("Emergency Call Button Pressed")
+                                            self.selectionEmergencyCall = 1
+                                                                            } label: {
+                                                                                VStack {
+                                                                                    Text("Emergency Call")
+                                                                                    Image(systemName: "exclamationmark.circle")
+                                                                                        .font(.system(size: 40))
+                                                                                        .foregroundColor(darkText)
+                                                                                    
+                                                                                }
+                                                                            }
+                                                                            .frame(width: 90, height: 90)
+                                                                            .padding()
+                                                                            .foregroundColor(darkText)
+                                                                            .font(Font.headline.weight(.medium))
+                                                                            .background(Color("YVR Light Blue"))
+                                                                            .cornerRadius(25)
+                                                                        .shadow(color: .red, radius: 2, x: 0, y: 2)
                                     }
-                                    .frame(width: 90, height: 90)
-                                    .padding()
-                                    .font(Font.headline.weight(.medium))
-                                    .foregroundColor(darkText)
-                                    .background(Color("YVR Light Blue"))
-                                    .cornerRadius(25)
-                                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
+
+                                                
+                                    
+                                    
                                     
     //                                FIRST AID BUTTON
                                     NavigationLink(destination: FirstAidMenuView(), tag:1, selection: $selectionFirstAid) {
@@ -123,7 +137,7 @@ struct HomePage: View {
                                             self.selectionFirstAid = 1
                                         } label: {
                                             VStack {
-                                                Text("FIRST AID")
+                                                Text("First Aid")
                                                     .padding(.horizontal)
                                                 Image(systemName: "cross")
                                                     .font(.system(size: 40))
@@ -136,7 +150,7 @@ struct HomePage: View {
                                                 .foregroundColor(darkText)
                                                 .background(Color("YVR Light Blue"))
                                                 .cornerRadius(25)
-                                                .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                                                .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                     }
                                     
                                     
@@ -149,7 +163,7 @@ struct HomePage: View {
                                             self.selectionTailboardMenuView = 1
                                                 } label: {
                                                     VStack {
-                                                        Text("TAILBOARD")
+                                                        Text("Tailboard")
                                                         Image(systemName: "doc.on.clipboard")
                                                             .font(.system(size: 35))
                                                     }
@@ -160,7 +174,7 @@ struct HomePage: View {
                                                 .foregroundColor(darkText)
                                                 .background(Color("YVR Light Blue"))
                                                 .cornerRadius(25)
-                                            .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                                            .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                     }
                                 }
                                 
@@ -172,18 +186,19 @@ struct HomePage: View {
                                         share_Sheet()
                                     } label: {
                                         VStack {
-                                            Text("SHARE")
+                                            Text("Share App")
                                             Image(systemName: "arrowshape.turn.up.left.2")
+                                                .padding(.bottom, 5)
                                                 .font(.system(size: 40))
                                         }
                                     }
                                     .frame(width: 90, height: 90)
                                     .font(Font.headline.weight(.medium))
                                     .padding()
-                                    .foregroundColor(Color("YVR Dark Blue"))
+                                    .foregroundColor(darkText)
                                     .background(Color("YVR Light Blue"))
                                     .cornerRadius(25)
-                                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                                    .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                     
                                     
                                    
@@ -208,9 +223,31 @@ struct HomePage: View {
                                     .foregroundColor(darkText)
                                     .background(Color("YVR Light Blue"))
                                     .cornerRadius(25)
-                                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                                    .shadow(color: .blue, radius: 2, x: 0, y: 2)
                                     
-                                    SettingsButton()
+                                    
+                                    Button(action: {
+                                        if let plannerURL = URL(string: "https://tasks.office.com/yvr.ca/en-US/Home/Planner/") {
+                                                            UIApplication.shared.open(plannerURL)
+                                        }
+                                                }) {
+                                                    VStack {
+                                                        
+                                                        Text("Report to Planner")
+                                                        Image(systemName: "arrow.right.doc.on.clipboard")
+//                                                            .padding()
+                                                            .font(.system(size: 30))
+                                                    }
+                                                    .frame(width: 90, height: 90)
+                                                    .padding()
+                                                    .font(Font.headline.weight(.medium))
+                                                            .foregroundColor(darkText)
+                                                            .background(Color("YVR Light Blue"))
+                                                            .cornerRadius(25)
+                                                            .shadow(color: .blue, radius: 2, x: 0, y: 2)
+                                                }
+                                    
+
                                 }
                                 
                         NavigationLink (destination: SendAppFeedbackView(), tag:1, selection: $selectionAppFeedbackView){
@@ -230,7 +267,7 @@ struct HomePage: View {
                             .foregroundColor(darkText)
                             .background(Color("YVR Light Blue"))
                             .cornerRadius(25)
-                            .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                            .shadow(color: .blue, radius: 2, x: 0, y: 2)
                         }
                                 
                                
@@ -241,7 +278,7 @@ struct HomePage: View {
                             
                     }
                 }
-            }
+//            }
         }   // end of Home Page
         .accentColor(Color("YVR Dark Blue"))
     
@@ -258,29 +295,4 @@ struct HomePage_Previews: PreviewProvider {
     }
 }
 
-
-
-
-struct SettingsButton: View {
-    var body: some View {
-        Button {
-            print("Button Pressed")
-        } label: {
-            VStack {
-                Text("SETTINGS")
-                Image(systemName: "gearshape.2")
-                    .font(.system(size: 40))
-                    .foregroundColor(darkText)
-                
-            }
-        }
-        .frame(width: 90, height: 90)
-        .padding()
-        .foregroundColor(darkText)
-        .font(Font.headline.weight(.medium))
-        .background(Color("YVR Light Blue"))
-        .cornerRadius(25)
-        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-    }
-}
 

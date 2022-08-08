@@ -1,5 +1,5 @@
 //
-//  PracticeSignatureView.swift
+//  SignatureView.swift
 //  MTE Corner
 //
 //  Created by Sanskruti  Padmawar  on 2022-07-05.
@@ -16,7 +16,7 @@ struct Line {
 
 
 
-struct PracticeSignatureView: View {
+struct SignatureView: View {
 
     
     @State private var lines: [Line] = []
@@ -26,6 +26,7 @@ struct PracticeSignatureView: View {
         VStack {
             HStack {
                 Text("Choose Color")
+                    .foregroundColor(darkText)
                 ForEach([Color.black, Color.blue], id: \.self) { c in
                     colorButton(color: c)
                 }
@@ -40,7 +41,7 @@ struct PracticeSignatureView: View {
                     var path = Path()
                     path.addLines(line.points)
                     
-                    canvasContext.stroke(path, with: .color(line.color), style : StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
+                    canvasContext.stroke(path, with: .color(line.color), style : StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
                 }
             }
             
@@ -61,9 +62,12 @@ struct PracticeSignatureView: View {
                 }
             })
                 )
+            
+            
         }
         
     }
+    
     
     @ViewBuilder
 //    You typically use ViewBuilder as a parameter attribute for child view-producing closure parameters, allowing those closures to provide multiple child views. For example
@@ -72,11 +76,11 @@ struct PracticeSignatureView: View {
             selectedColor = color
         } label: {
             Image(systemName: "circle.fill")
-                .font(.largeTitle)
+                .font(.title2)
                 .foregroundColor(color)
                 .mask {
                     Image(systemName: "applepencil")
-                        .font(.largeTitle)
+                        .font(.title2)
                 }
         }
     }
@@ -88,18 +92,20 @@ struct PracticeSignatureView: View {
             lines = []
         } label: {
             Image(systemName: "pencil.tip.crop.circle.badge.minus")
-                .font(.largeTitle)
+                .font(.title2)
                 .foregroundColor(lightGreyForHome)
                 
         }
     }
+    
+    
 }
 
 
 
 
-struct PracticeSignatureView_Previews: PreviewProvider {
+struct SignatureView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticeSignatureView()
+        SignatureView()
     }
 }

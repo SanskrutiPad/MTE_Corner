@@ -37,9 +37,11 @@ struct HomePage: View {
                                         
                                     Text("Maintenance Corner")
                                         .padding()
+//                                        .font(.system(size: 20))
                                         .foregroundColor(darkText)
-                                        .font(Font.headline.weight(.heavy))
+                                        .font(Font.headline.weight(.medium))
                                         .frame(maxWidth: .infinity, alignment: . center)
+                                        
                                     
                                 }
                                 Divider().background(Color.black)

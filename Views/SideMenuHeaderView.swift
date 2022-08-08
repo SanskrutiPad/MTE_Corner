@@ -41,6 +41,7 @@ struct SideMenuHeaderView: View {
                     .frame(width: 60, height: 60, alignment: .trailing)
                     .padding(.bottom, 1)
                     .padding(.top, 20)
+                    .padding(.trailing, 4)
                 
                 Text("Sanskruti Padmawar")
                     .font(.system(size: 20, weight: .semibold))
@@ -48,9 +49,10 @@ struct SideMenuHeaderView: View {
                     
                 
                 Text("padmawars_coop@yvr.ca")
+                    .foregroundColor(.white)
                     .font(.system(size: 14, weight: .medium))
                     .padding(.bottom, 32)
-                    .foregroundColor(.white)
+                    
                     
                 
                 

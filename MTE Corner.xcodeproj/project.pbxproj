@@ -38,6 +38,7 @@
 		0C914B0A286E15D90059031A /* SendAppFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C914B09286E15D90059031A /* SendAppFeedbackView.swift */; };
 		0CA237A82863AA1A0028A490 /* SafetyToolboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA237A72863AA1A0028A490 /* SafetyToolboxView.swift */; };
 		0CA237AC2863BED90028A490 /* WSBCFirstAidFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA237AB2863BED90028A490 /* WSBCFirstAidFormView.swift */; };
+		0CC85EAC28A1CADD00548945 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC85EAB28A1CADD00548945 /* SettingsView.swift */; };
 		0CD34F95287F1CB3006DEE7A /* ToolboxResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD34F94287F1CB3006DEE7A /* ToolboxResultsView.swift */; };
 		0CD34F99287F594F006DEE7A /* Toolbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD34F98287F594F006DEE7A /* Toolbox.swift */; };
 		0CD34F9B28821E5D006DEE7A /* ToolboxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD34F9A28821E5D006DEE7A /* ToolboxManager.swift */; };
@@ -116,6 +117,7 @@
 		0C914B09286E15D90059031A /* SendAppFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAppFeedbackView.swift; sourceTree = "<group>"; };
 		0CA237A72863AA1A0028A490 /* SafetyToolboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyToolboxView.swift; sourceTree = "<group>"; };
 		0CA237AB2863BED90028A490 /* WSBCFirstAidFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSBCFirstAidFormView.swift; sourceTree = "<group>"; };
+		0CC85EAB28A1CADD00548945 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0CD34F94287F1CB3006DEE7A /* ToolboxResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolboxResultsView.swift; sourceTree = "<group>"; };
 		0CD34F98287F594F006DEE7A /* Toolbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbox.swift; sourceTree = "<group>"; };
 		0CD34F9A28821E5D006DEE7A /* ToolboxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolboxManager.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				0C40DC202887A14B00CED998 /* CameraView.swift */,
 				0C40DC222888538B00CED998 /* ImagePicker.swift */,
 				0C4D9E50289C65E00083464F /* EmergencyCallView.swift */,
+				0CC85EAB28A1CADD00548945 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				0C4D9E51289C65E00083464F /* EmergencyCallView.swift in Sources */,
 				0CA237A82863AA1A0028A490 /* SafetyToolboxView.swift in Sources */,
 				0C26393E282ADFDD00E43318 /* SideMenuOptionView.swift in Sources */,
+				0CC85EAC28A1CADD00548945 /* SettingsView.swift in Sources */,
 				0C26393A282ADF8900E43318 /* SideMenuView.swift in Sources */,
 				0C40A98A2857E4550008026C /* TaskForForms.swift in Sources */,
 				0CE71C6F2862ADBB009E03A0 /* QuestionSix.swift in Sources */,

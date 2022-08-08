@@ -9,11 +9,9 @@ import SwiftUI
 
 struct SideMenuView: View {
     @Binding var isMenuShowing: Bool
-//    let viewModel: SideMenuViewModel
-    @State var selectionHomeView: Int? = nil
     @State var selectionSearchView: Int? = nil
-    @State var selectionDashboardView: Int? = nil
-    @State var selectionProfileView: Int? = nil
+    @State var selectionSettingsView: Int? = nil
+    @State var selectionLogoutView: Int? = nil
     
     var body: some View {
         ZStack {
@@ -29,24 +27,6 @@ struct SideMenuView: View {
                     .padding(.bottom, 40)
                 
                 VStack {
-                    NavigationLink(destination: HomePageView() , tag: 1, selection: $selectionHomeView) {
-                        Button{
-                            print("Search tapped")
-                            self.selectionHomeView = 1
-                        } label: {
-                            HStack {
-                                Image(systemName: "homekit")
-                                    .padding()
-                                    .frame(width: 24, height: 24)
-                                Text("Home")
-                                    .font(.system(size: 15, weight: .semibold))
-                                
-                            }
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundColor(.white)
-                    }
                     
                     NavigationLink(destination: Search() , tag: 1, selection: $selectionSearchView) {
                         Button{
@@ -67,16 +47,16 @@ struct SideMenuView: View {
                         .foregroundColor(.white)
                     }
                     
-                    NavigationLink(destination: Dashboard() , tag: 1, selection: $selectionDashboardView) {
+                    NavigationLink(destination: SettingsView() , tag: 1, selection: $selectionSettingsView) {
                         Button{
-                            print("Dashboard tapped")
-                            self.selectionDashboardView = 1
+                            print("Settings tapped")
+                            self.selectionSettingsView = 1
                         } label: {
                             HStack {
-                                Image(systemName: "chart.bar.xaxis")
+                                Image(systemName: "gearshape.fill")
                                     .padding()
                                     .frame(width: 24, height: 24)
-                                Text("Dashboard")
+                                Text("Settings")
                                     .font(.system(size: 15, weight: .semibold))
                                 
                             }
@@ -86,29 +66,12 @@ struct SideMenuView: View {
                         .foregroundColor(.white)
                     }
                     
-                    NavigationLink(destination: Search() , tag: 1, selection: $selectionProfileView) {
-                        Button{
-                            print("Profile tapped")
-                            self.selectionProfileView = 1
-                        } label: {
-                            HStack {
-                                Image(systemName: "person")
-                                    .padding()
-                                    .frame(width: 24, height: 24)
-                                Text("Profile")
-                                    .font(.system(size: 15, weight: .semibold))
-                                
-                            }
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundColor(.white)
-                    }
+
                     
-                    NavigationLink(destination: Logout() , tag: 1, selection: $selectionProfileView) {
+                    NavigationLink(destination: Logout() , tag: 1, selection: $selectionLogoutView) {
                         Button{
                             print("Logout tapped")
-                            self.selectionProfileView = 1
+                            self.selectionLogoutView = 1
                         } label: {
                             HStack {
                                 Image(systemName: "arrow.left.square.fill")
@@ -126,21 +89,7 @@ struct SideMenuView: View {
                     
                 }
                 
-                
-//                ForEach(SideMenuViewModel.allCases, id: \.self) { option in
-//
-////                    NavigationLink(destination: option.title , label: {
-//                                                SideMenuOptionView(viewModel: option)
-//                                                    .foregroundColor(.white)
-////                    }
-//
-//                }
-                
-                
-                
-//                NavigationLink(destination: HomePageView(), label: {
-//                    Text("Home")
-//                })
+
                 
                 Spacer()
             }
@@ -151,6 +100,6 @@ struct SideMenuView: View {
 
 struct SideMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        SideMenuView(isMenuShowing: .constant(true), selectionHomeView: 0, selectionSearchView: 0, selectionDashboardView: 0, selectionProfileView: 0)
+        SideMenuView(isMenuShowing: .constant(true), selectionSearchView: 0, selectionSettingsView: 0, selectionLogoutView: 0)
     }
 }

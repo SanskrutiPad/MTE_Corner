@@ -14,23 +14,7 @@ struct Dashboard: View {
     var body: some View {
         NavigationView {
             VStack {
-                // App 'Header'
-    //            HStack {
-    //
-    //                Image("YVRLogo_VAA_BlueText_CMYK").resizable().aspectRatio(contentMode:.fit)
-    //                    .frame(width: 140, height: 60, alignment: .leading)
-    //                Text("Maintenance Corner")
-    //                    .padding()
-    //                    .foregroundColor(Color("YVR Dark Blue"))
-    //                    .font(Font.headline.weight(.heavy))
-    //                    .frame(maxWidth: .infinity, alignment: .trailing)
-    //            }
-    //            Divider().background(Color.black)
                 Spacer()
-    //
-    //            DashboardTitle()
-                
-    //            Tab view
                 HStack {
                     Text("Week")
                         .foregroundColor(self.index == 0 ? .white : Color("YVR Light Blue").opacity(0.7))
@@ -71,12 +55,6 @@ struct Dashboard: View {
                 
                 
                 Spacer()
-                
-                
-                
-                
-                
-                
                 HStack {
                 // Button #1
                     Text("Hello")
@@ -127,13 +105,3 @@ struct DashboardTitle: View {
             .padding()
     }
 }
-
-//struct TabButton: View {
-//    var body: some View {
-//
-//
-//
-//    }
-//
-//
-//}

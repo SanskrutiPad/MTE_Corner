@@ -20,7 +20,7 @@ struct ContentView: View {
                 if isMenuShowing {
                     SideMenuView(isMenuShowing: $isMenuShowing)
                 }
-                HomePage()
+                LoginPage()
                 
 //                animation
                     .cornerRadius(isMenuShowing ? 20 : 10)

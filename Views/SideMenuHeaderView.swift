@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SideMenuHeaderView: View {
     @Binding var isMenuShowing: Bool
+    @State private var profileImg: [Image] = [Image("Aimg"), Image("Bimg"), Image("Cimg"), Image("Dimg"), Image("Eimg"), Image("Fimg"), Image("Gimg"), Image("Himg"), Image("Iimg"), Image("Jimg"), Image("Kimg"), Image("Limg"), Image("Mimg"), Image("Nimg"), Image("Oimg"), Image("Pimg"), Image("Qimg"), Image("Rimg"), Image("Simg"), Image("Timg"), Image("Uimg"), Image("Vimg"), Image("Wimg"), Image("Ximg"), Image("Yimg"), Image("Zimg")]
     
     var body: some View {
         ZStack (alignment: .topTrailing){
@@ -75,3 +76,6 @@ struct SideMenuHeaderView_Previews: PreviewProvider {
         SideMenuHeaderView(isMenuShowing: .constant(true))
     }
 }
+
+
+

@@ -11,6 +11,7 @@ struct SideMenuView: View {
     @Binding var isMenuShowing: Bool
     @State var selectionSearchView: Int? = nil
     @State var selectionSettingsView: Int? = nil
+    @State var selectionWPCView: Int? = nil
     @State var selectionLogoutView: Int? = nil
     
     var body: some View {
@@ -38,6 +39,25 @@ struct SideMenuView: View {
                                     .padding()
                                     .frame(width: 24, height: 24)
                                 Text("Search")
+                                    .font(.system(size: 15, weight: .semibold))
+                                
+                            }
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(.white)
+                    }
+                    
+                    NavigationLink(destination: WorkPracticeCodeMenu() , tag: 1, selection: $selectionWPCView) {
+                        Button{
+                            print("Work Practice Code Menu tapped")
+                            self.selectionWPCView = 1
+                        } label: {
+                            HStack {
+                                Image(systemName: "list.bullet.rectangle.fill")
+                                    .padding()
+                                    .frame(width: 24, height: 24)
+                                Text("Work Practice Codes")
                                     .font(.system(size: 15, weight: .semibold))
                                 
                             }
@@ -100,6 +120,6 @@ struct SideMenuView: View {
 
 struct SideMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        SideMenuView(isMenuShowing: .constant(true), selectionSearchView: 0, selectionSettingsView: 0, selectionLogoutView: 0)
+        SideMenuView(isMenuShowing: .constant(true), selectionSearchView: 0, selectionSettingsView: 0, selectionWPCView: 0, selectionLogoutView: 0)
     }
 }

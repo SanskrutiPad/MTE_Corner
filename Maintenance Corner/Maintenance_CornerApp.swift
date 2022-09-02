@@ -10,8 +10,8 @@ import Firebase
 
 
 @main
-
 struct Maintenance_CornerApp: App {
+    @StateObject var loginDataManager = LoginDataManager()
     
     init() {
         FirebaseApp.configure()
@@ -19,7 +19,9 @@ struct Maintenance_CornerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            readAndWrite()
+                .environmentObject(loginDataManager)
             
         }
     }

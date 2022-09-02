@@ -93,6 +93,11 @@ struct WSBCView: View {
         let LbOrKg = ["lb", "kg"]
     @State private var selectedContributingFactors = "Lifting"
     let contributingFactors = ["lifiting", "Overexertion", "Repetitive", "Slip or Trip", "Twist", "Fall", "Struck", "Crush", "Sharp Edge", "Fire or Explosion", "Harmful Substances in the work environment", "Animal Bite", "Assault", "Motor Vehicle accident", "Unsure/other (please explain below)"]
+    @State var firstAidAttendant = ""
+    @State var firstAidAttendantDate : Date = Date()
+    @State var providerName = ""
+    @State var providerNameDate : Date = Date()
+    
     
     
     var body: some View {
@@ -379,6 +384,7 @@ struct WSBCView: View {
                                             .frame(height: 150, alignment: .top)
                                             .foregroundColor(.black)
                                         Text("11. Describe how the injury in detail (what part of the body was injured): ")
+                                            .fixedSize(horizontal: false, vertical: true)
                                                 .padding(.top)
                                                 .font(.system(size: 16))
                                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -405,7 +411,7 @@ struct WSBCView: View {
                                                 .font(.system(size: 16))
                                                 .frame(maxWidth: .infinity, alignment: .leading)
                                             yesNoCheckboxes()
-                                        }
+                                        }.fixedSize(horizontal: false, vertical: true)
                                         
 
                                     }
@@ -446,6 +452,7 @@ struct WSBCView: View {
                                                                     Text($0)
                                                                 }
                                         }.foregroundColor(darkText)
+                                            .fixedSize(horizontal: false, vertical: true)
                                         Picker("15.", selection: $selectedContributingFactors) {
                                                                 ForEach(contributingFactors, id: \.self) {
                                                                     Text($0)
@@ -460,6 +467,7 @@ struct WSBCView: View {
                                         }
                                         VStack {
                                             Text("17. Did the incident occur in British Columbia? ")
+                                                .fixedSize(horizontal: false, vertical: true)
                                                 .padding(.top)
                                                 .font(.system(size: 16))
                                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -467,6 +475,7 @@ struct WSBCView: View {
                                         }
                                         VStack {
                                             Text("18. Were the worker's actions at the time of injury for the purpose of your business? ")
+                                                .fixedSize(horizontal: false, vertical: true)
                                                 .padding(.top)
                                                 .font(.system(size: 16))
                                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -474,6 +483,7 @@ struct WSBCView: View {
                                         }
                                         VStack {
                                             Text("19. Did the incident occur on employer's premises or authorized worksite? ")
+                                                .fixedSize(horizontal: false, vertical: true)
                                                 .padding(.top)
                                                 .font(.system(size: 16))
                                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -481,6 +491,7 @@ struct WSBCView: View {
                                         }
                                         VStack {
                                             Text("20. Did the incident occur during the worker's normal shift? ")
+                                                .fixedSize(horizontal: false, vertical: true)
                                                 .padding(.top)
                                                 .font(.system(size: 16))
                                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -488,6 +499,7 @@ struct WSBCView: View {
                                         }
                                         VStack {
                                             Text("21. Was the worker performing their regular duties at the time of the incident? ")
+                                                .fixedSize(horizontal: false, vertical: true)
                                                 .padding(.top)
                                                 .font(.system(size: 16))
                                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -499,9 +511,40 @@ struct WSBCView: View {
                                                 .font(.system(size: 16))
                                                 .frame(maxWidth: .infinity, alignment: .leading)
                                                 yesNoCheckboxes()
+                                            
                                         }
+                                        Text("If yes, please provide first aid attendant name (if known)")
+                                            .fixedSize(horizontal: false, vertical: true)
 
                                             
+                                    }
+                                    
+                                    Group {
+                                        VStack {
+                                            TextField("Type here", text: $firstAidAttendant)
+                                                .padding(.top)
+                                            .foregroundColor(.black)
+                                            DatePicker("Date", selection: $firstAidAttendantDate,
+                                                       displayedComponents: [.date])
+                                                        .accentColor(darkText)
+                                        }
+                                        Text("23. Did the worker go to the hospital, clinic, or visit a physician or qualified practitioner? ")
+                                            .padding(.top)
+                                            .font(.system(size: 16))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            yesNoCheckboxes()
+                                        Text("If yes, please provide provider name (if known)")
+                                            .fixedSize(horizontal: false, vertical: true)
+                                        VStack {
+                                            TextField("Type here", text: $providerName)
+                                                .padding(.top)
+                                            .foregroundColor(.black)
+                                            DatePicker("Date", selection: $providerNameDate,
+                                                       displayedComponents: [.date])
+                                                        .accentColor(darkText)
+                                        }
+                                        
+                                        
                                     }
                                 }
 

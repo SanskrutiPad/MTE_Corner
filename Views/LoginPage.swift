@@ -35,7 +35,7 @@ struct LoginPage: View {
                         
                         Image("Logo").resizable().aspectRatio(contentMode:.fit)
                             .frame(width: 140, height: 60, alignment: .leading)
-                            .shadow(color: .blue, radius: 2, x: 0, y: 2)
+                            .shadow(color: .gray, radius: 2, x: 0, y: 2)
                         Text("Maintenance Corner")
                             .padding()
     //                                        .font(.system(size: 20))

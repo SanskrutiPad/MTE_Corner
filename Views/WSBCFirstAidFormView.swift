@@ -130,6 +130,33 @@ struct WSBCFirstAidFormView: View {
                                 TextField("First aid attendant's name (please print)", text: $firstAidAttendantName)
                                     .padding(.top)
                                     .foregroundColor(.black)
+                                Text("First aid attendant's Signature")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(darkText)
+                                SignatureView()
+                                    .frame(width: 300, height: 180)
+                                Text("Patient's Signature")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(darkText)
+                                SignatureView()
+                                    .frame(width: 300, height: 180)
+//                                NavigationLink(destination: ToolboxView(), tag: 1, selection: $selectionGenPDFButton) {
+                                    Button (action:{
+                                        print("Submit Button tapped")
+                                        self.selectionGenPDFButton = 1
+                                    })  {
+                                        HStack {
+                                            Text("Generate PDF")
+                                        }
+                                        .padding(20)
+                                        .frame(alignment: .center)
+                                        .background(Color.white)
+                                        .foregroundColor(Color("YVR Dark Blue"))
+                                        .cornerRadius(20)
+                                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+
+                                    }
+//                                }
                             }
                             
                         
@@ -138,25 +165,14 @@ struct WSBCFirstAidFormView: View {
                         
                     
                     }
-                NavigationLink(destination: ToolboxView(), tag: 1, selection: $selectionGenPDFButton) {
-                    Button (action:{
-                        print("Submit Button tapped")
-                        self.selectionGenPDFButton = 1
-                    })  {
-                        HStack {
-                            Text("Generate PDF")
-                        }
-                        .padding(20)
-                        .background(Color.white)
-                        .foregroundColor(Color("YVR Dark Blue"))
-                        .cornerRadius(20)
-                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-
-                    }
-                }
+                
+               
+                
             }
                     .navigationTitle("First Aid Record")
                 .foregroundColor(darkText)
+        
+        
             
         }
         

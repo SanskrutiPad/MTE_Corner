@@ -19,6 +19,7 @@ private let firstAidFormList: [FirstAidForm] = [FirstAidForm(formName: "WorkSafe
 
 struct FirstAidMenuView: View {
     @State var selectionWSBCFirstAidRecordForm: Int? = nil
+    @State var selectionHazardousOccurenceInvestigationReport: Int? = nil
     @State var selectionWSBCEmployersReportOfInjuryOrOccupationalDisease: Int? = nil
     
     var body: some View {
@@ -45,6 +46,22 @@ struct FirstAidMenuView: View {
                                                 }
                                         }
                                     }
+                    
+                    NavigationLink(destination: HazardousOccurrenceView(), tag: 1, selection: $selectionHazardousOccurenceInvestigationReport) {
+                                    Button {
+                                        print("Hazardous Occurence Investigation Report tapped")
+                                        self.selectionHazardousOccurenceInvestigationReport = 1
+                                    } label: {
+                                        VStack {
+                                            Text("Hazardous Occurence Investigation Report")
+                                                .padding()
+                                                .frame(alignment: .leading)
+                                                .font(Font.headline.weight(.medium))
+                                        }
+                                                    
+
+                            }
+                        }
                     
                     
                     

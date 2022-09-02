@@ -33,7 +33,7 @@ struct HomeView: View {
                                 HStack {
                                     
                                     Image("Logo").resizable().aspectRatio(contentMode:.fit)
-                                        .shadow(color: .blue, radius: 2, x: 0, y: 2)
+                                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
                                         
                                     Text("Maintenance Corner")
                                         .padding()

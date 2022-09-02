@@ -20,6 +20,7 @@ struct ContentView: View {
                 if isMenuShowing {
                     SideMenuView(isMenuShowing: $isMenuShowing)
                 }
+//                HomeView()
                 LoginPage()
                 
 //                animation
